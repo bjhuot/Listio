@@ -22,6 +22,10 @@ function postBlank() {
     $('.list ul').find('li:last-child').html('<div>'+inputName+'<br>'+inputDesc+'</div>'+'<div>'+btnSave+'</div>');
 };
 
+function deleteLine() {
+    $(this).remove();
+};
+
 //
 // WORKSPACE
 //
@@ -48,6 +52,14 @@ $('ul').click(function(){
 //Clicking Down moves selected list entry down:
 
 //Clicking Delete removes selected list entry:
+
+$('ul').click(function(){
+    if(event.target.className == 'delete') {
+        //$('.delete').parent().parent().remove();
+        //vs
+        deleteLine();
+    }
+});
 
 //Right side of page has text entry field
 //Print button at bottom prints entire list/notepad
