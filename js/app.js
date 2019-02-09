@@ -55,9 +55,9 @@ $('ul').click(function(){
 
 $('ul').click(function(){
     if(event.target.className == 'delete') {
-        //$('.delete').parent().parent().remove();
+        $('.delete').parent().parent().remove();
         //vs
-        deleteLine();
+        //deleteLine();
     }
 });
 
