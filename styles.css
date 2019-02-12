@@ -1,39 +1,6 @@
-.wrapper {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.inputItem {
-    display: inline-flex;
-    justify-content: space-between;
-    flex-grow: 3;
-}
-
 ul,
-.list {
-    display: inline;
-}
-
-input[type=checkbox] {
-    width: 20px;
-    height: 20px;
-    float: left;
-    flex-basis: 100%;
-}
-
-input[type=text],
-textarea {
-    clear: left;
-    margin-left: 5px;
-}
-
-div:first-child:not(.list) {
-    display: inline;
-    flex-direction: column;
-}
-
-.notepad {
-    display: inline-flex;
-    flex-grow: 1;
+li {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
 }
