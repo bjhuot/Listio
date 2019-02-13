@@ -1,6 +1,61 @@
+* {
+    font-family: sans-serif;
+}
+
 ul,
 li {
     margin: 0;
     padding: 0;
     list-style-type: none;
+}
+
+button {
+    border: none;
+    padding: 8px;
+    border-radius: 10px;
+}
+
+.btnUp,
+.btnDown,
+.save {
+    background-color: #53dab3;
+}
+
+.btnRemove {
+    background-color: #990000;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.saved-items {
+    display: flex;
+    flex-direction: column;
+}
+
+ul.saved-items li {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+input[type=checkbox] {
+    flex-basis: 100%;
+}
+/** 
+*** INPUT FOR LIST
+**/
+
+li.itemInput {
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+    height: 100px;
+}
+
+li.itemInput input,
+li.itemInput textarea {
+    height: 45%;
 }

@@ -1,5 +1,5 @@
 //
-// VARIABLES
+// GLOBAL VARIABLES
 //
 
 //
@@ -84,6 +84,10 @@ function enableCheck() {
     }
 };
 
+//
+// SELECTORS
+//
+
 //Calls newInput() when 'Save' button is clicked & copies content
 
 document.querySelector('.save').addEventListener('click', () => {
@@ -108,11 +112,23 @@ document.querySelector('.saved-items').addEventListener('click', () => {
 });
 
 //Moves item down list when Down button is clicked and checks to disable up/down buttons
-// document.querySelectorAll('.btnDown').addEventListener('click', () => {
-
-// });
+document.querySelector('.saved-items').addEventListener('click', () => {
+    if(event.target.classList == 'btnDown') {
+        let liNext = event.target.parentElement.nextElementSibling.nextElementSibling;
+        let liCur = event.target.parentElement;
+        let ul = liCur.parentElement;
+        ul.insertBefore(liCur, liNext);
+    };
+    disableCheck();
+    enableCheck();
+});
 
 //Removes item from list when Remove button is clicked and checks to disable up/down buttons
-// document.querySelectorAll('.btnRemove').addEventListener('click', () => {
-
-// });
+document.querySelector('.saved-items').addEventListener('click', () => {
+    if(event.target.classList == 'btnRemove') {
+        let liCur = event.target.parentElement;
+        liCur.remove();
+    };
+    disableCheck();
+    enableCheck();
+});
