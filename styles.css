@@ -1,5 +1,12 @@
 * {
     font-family: sans-serif;
+    resize: none;
+    margin: 0;
+}
+
+header {
+    background-color: #53dab3;
+    padding: 10px 10px;
 }
 
 ul,
@@ -9,10 +16,24 @@ li {
     list-style-type: none;
 }
 
+.wrapper {
+    width: 95%;
+    margin: 10px;
+}
+/**
+*** INPUT & BUTTON STYLING
+**/
+
 button {
     border: none;
     padding: 8px;
     border-radius: 10px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif
+}
+
+.strike {
+    text-decoration: line-through;
 }
 
 .btnUp,
@@ -23,39 +44,89 @@ button {
 
 .btnRemove {
     background-color: #990000;
+    padding: 4px 7px;
+    border-radius: 50%;
 }
 
-.wrapper {
-    display: flex;
-    flex-direction: column;
+.itemInput,
+.itemDesc {
+    border: none;
 }
 
-.saved-items {
+.itemInputPrime,
+.itemDescPrime {
+    border: 1px solid #333;
+}
+
+.itemInput,
+.itemInputPrime {
+    margin-top: 5px;
+    font-size: 1em;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif
+}
+
+.itemDesc,
+.itemDescPrime {
+    height: 3em;
+    margin-bottom: 5px;
+    font-weight: 100;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.notepad textarea {
+    width: 100%;
+    height: 20em;
+}
+
+.btnUp {
+    margin-right: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border: 1px solid #333;
+}
+
+.btnDown {
+    margin-left: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border: 1px solid #333;
+}
+
+/** 
+*** INPUT & BUTTON POSITIONING
+**/
+
+input[type=checkbox] {
+    align-self: center;
+    height: 25px;
+    width: 25px;
+    margin: 0;
+}
+
+li.itemInput {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.inputSpan {
     display: flex;
     flex-direction: column;
+    flex-grow: 2;
+    max-width: 80%;
+}
+
+.btnSave {
+    align-self: center;
+}
+
+.btnTriplet {
+    align-self: center;
 }
 
 ul.saved-items li {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: wrap;
-}
-
-input[type=checkbox] {
-    flex-basis: 100%;
-}
-/** 
-*** INPUT FOR LIST
-**/
-
-li.itemInput {
-    display: flex;
-    flex-direction: column;
-    /* flex-wrap: wrap; */
-    height: 100px;
-}
-
-li.itemInput input,
-li.itemInput textarea {
-    height: 45%;
 }

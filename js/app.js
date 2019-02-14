@@ -6,7 +6,7 @@
 // FUNCTIONS
 //
 
-function inputPair(li) {
+function inputPair(span, li) {
     let checkbox = document.createElement('INPUT');
     let input = document.createElement('INPUT');
     let textarea = document.createElement('TEXTAREA');
@@ -15,40 +15,48 @@ function inputPair(li) {
     input.setAttribute('placeholder', 'To-Do');
     textarea.classList.add('itemDesc');
     textarea.setAttribute('placeholder', 'Details');
-    li.appendChild(checkbox);
-    li.appendChild(input);
-    li.appendChild(textarea);
+    span.appendChild(input);
+    li.insertBefore(checkbox, span);
+    span.appendChild(textarea);
 };
 
-function buttonUp(li) {
+function buttonUp(div) {
     let buttonup = document.createElement('BUTTON');
     buttonup.classList.add('btnUp');
     buttonup.textContent = 'Up';
-    li.appendChild(buttonup);
+    div.appendChild(buttonup);
 };
 
-function buttonDown(li) {
+function buttonDown(div) {
     let buttondown = document.createElement('BUTTON');
     buttondown.classList.add('btnDown');
     buttondown.textContent = 'Down';
-    li.appendChild(buttondown);
+    div.appendChild(buttondown);
 };
 
-function buttonRemove(li) {
+function buttonRemove(div) {
     let buttonremove = document.createElement('BUTTON');
     buttonremove.classList.add('btnRemove');
-    buttonremove.textContent = 'Remove';
-    li.appendChild(buttonremove);
+    buttonremove.textContent = 'X';
+    div.appendChild(buttonremove);
 };
 
 //Creates new input pair with up/down/remove triplet appended
 function newInput() {
     let li = document.createElement('LI');
+    let span = document.createElement('SPAN');
+    span.classList.add('inputSpan');
+    let div = document.createElement('DIV');
+    div.classList.add('btnTriplet');
     document.querySelector('.saved-items').appendChild(li);
-    inputPair(li);
-    buttonUp(li);
-    buttonDown(li);
-    buttonRemove(li);
+    document.querySelector('.saved-items li:last-child').appendChild(span);
+    document.querySelector('.saved-items li:last-child').appendChild(div);
+    // let div = document.createElement('DIV');
+    // document.querySelector('.saved-items li').appendChild(div); 
+    inputPair(span, li);
+    buttonUp(div);
+    buttonDown(div);
+    buttonRemove(div);
 };
 
 //Function to copy content
@@ -102,8 +110,8 @@ document.querySelector('.save').addEventListener('click', () => {
 //Moves item up list when Up button is clicked and checks to disable up/down buttons
 document.querySelector('.saved-items').addEventListener('click', () => {
     if(event.target.classList == 'btnUp') {
-        let liPrev = event.target.parentElement.previousElementSibling;
-        let liCur = event.target.parentElement;
+        let liPrev = event.target.parentElement.parentElement.previousElementSibling;
+        let liCur = event.target.parentElement.parentElement;
         let ul = liCur.parentElement;
         ul.insertBefore(liCur, liPrev);
     };
@@ -114,8 +122,8 @@ document.querySelector('.saved-items').addEventListener('click', () => {
 //Moves item down list when Down button is clicked and checks to disable up/down buttons
 document.querySelector('.saved-items').addEventListener('click', () => {
     if(event.target.classList == 'btnDown') {
-        let liNext = event.target.parentElement.nextElementSibling.nextElementSibling;
-        let liCur = event.target.parentElement;
+        let liNext = event.target.parentElement.parentElement.nextElementSibling.nextElementSibling;
+        let liCur = event.target.parentElement.parentElement;
         let ul = liCur.parentElement;
         ul.insertBefore(liCur, liNext);
     };
@@ -126,9 +134,21 @@ document.querySelector('.saved-items').addEventListener('click', () => {
 //Removes item from list when Remove button is clicked and checks to disable up/down buttons
 document.querySelector('.saved-items').addEventListener('click', () => {
     if(event.target.classList == 'btnRemove') {
-        let liCur = event.target.parentElement;
+        let liCur = event.target.parentElement.parentElement;
         liCur.remove();
     };
     disableCheck();
     enableCheck();
+});
+
+//Adds class for strike-through
+
+document.querySelector('ul.saved-items').addEventListener('click', () => {
+    for(i=0;i<document.querySelectorAll('[type=checkbox]').length;i+=1) {
+        if (document.querySelectorAll('[type=checkbox]')[i].checked) {
+            document.querySelectorAll('[type=checkbox]')[i].nextElementSibling.firstChild.classList.add('strike');
+        } else { //removes strike-through
+            document.querySelectorAll('[type=checkbox]')[i].nextElementSibling.firstChild.classList.remove('strike');
+        }
+    }
 });

@@ -4,21 +4,30 @@
         <title>JavaScript List Demo</title>
         <link rel="stylesheet" href="styles.css">
     </head>
+    <header>
+        <h1>LIST.io</h1>
+    </header>
     <body>
         <div class="wrapper"> 
             <div class="list">
+                <h2>To-Do</h2>
                 <ul class="saved-items">
                     
                 </ul>
                 <ul>
                     <li class="itemInput">
-                        <input type="text" id="itemForm" class="itemInputPrime" placeholder="To-Do">
-                        <textarea name="itemDesc" class="itemDescPrime" placeholder="Details"></textarea>
-                        <button class="save" for="itemForm">Save</button>
+                        <span class="inputSpan">
+                            <input type="text" id="itemForm" class="itemInputPrime" placeholder="To-Do">
+                            <textarea name="itemDesc" class="itemDescPrime" placeholder="Details"></textarea>
+                        </span>
+                        <div class="btnSave">
+                            <button class="save" for="itemForm">Save</button>
+                        </div>
                     </li>
                 </ul>
             </div>
             <div class="notepad">
+                <h2>Notes</h2>
                 <textarea name="notepad" id="notepad"></textarea>
             </div>
         </div>
