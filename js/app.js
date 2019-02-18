@@ -135,7 +135,11 @@ document.querySelector('.saved-items').addEventListener('click', () => {
 document.querySelector('.saved-items').addEventListener('click', () => {
     if(event.target.classList == 'btnRemove') {
         let liCur = event.target.parentElement.parentElement;
-        liCur.remove();
+        function liCurRem() {
+            liCur.remove();
+        };
+        liCur.style.height="0px";
+        setTimeout(liCurRem, 200);
     };
     disableCheck();
     enableCheck();

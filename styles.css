@@ -38,6 +38,7 @@ button {
 
 .strike {
     text-decoration: line-through;
+    color: rgba(51, 51, 51, .5);
 }
 
 .btnUp,
@@ -47,8 +48,12 @@ button {
 }
 
 .btnRemove {
-    background-color: #990000;
-    padding: 4px 7px;
+    background-color: #f50000;
+    text-align: center;
+    color: black;
+    width: 30px;
+    height: 30px;
+    /* padding: 4px 7px; */
     border-radius: 50%;
 }
 
@@ -133,6 +138,8 @@ ul.saved-items li {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    height: 69px;
+    transition: height 200ms ease-in;
 }
 
 /**
