@@ -1,11 +1,9 @@
 //
-// GLOBAL VARIABLES
-//
-
-//
 // FUNCTIONS
 //
 
+
+// These generate input fields and all buttons //
 function inputPair(span, li) {
     let checkbox = document.createElement('INPUT');
     let input = document.createElement('INPUT');
@@ -41,7 +39,7 @@ function buttonRemove(div) {
     div.appendChild(buttonremove);
 };
 
-//Creates new input pair with up/down/remove triplet appended
+//Creates new input pair with up/down/remove triplet appended //
 function newInput() {
     let li = document.createElement('LI');
     let span = document.createElement('SPAN');
@@ -51,8 +49,6 @@ function newInput() {
     document.querySelector('.saved-items').appendChild(li);
     document.querySelector('.saved-items li:last-child').appendChild(span);
     document.querySelector('.saved-items li:last-child').appendChild(div);
-    // let div = document.createElement('DIV');
-    // document.querySelector('.saved-items li').appendChild(div); 
     inputPair(span, li);
     buttonUp(div);
     buttonDown(div);
