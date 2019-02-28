@@ -77,6 +77,13 @@ function disableCheck() {
     }
 };
 
+//Disables all down buttons only if there is only one item in the list (ie: the one that is not disabled by above function)
+function disableFirstDown() {
+    if (document.querySelectorAll('.saved-items li').length == 1) {
+        document.getElementsByClassName('btnDown')[0].setAttribute('disabled','');
+    }
+}
+
 //Enables Up button/Down button once they are moved away from the top/bottom of list
 function enableCheck() {
     for(let i=0; i<document.querySelectorAll('.saved-items li').length; i+= 1) {
@@ -99,6 +106,7 @@ document.querySelector('.save').addEventListener('click', () => {
     copyContent();
     document.querySelector('.itemInputPrime').value = '';
     document.querySelector('.itemDescPrime').value = '';
+    disableFirstDown();
     disableCheck();
     enableCheck();
 });
