@@ -160,3 +160,134 @@ document.querySelector('ul.saved-items').addEventListener('click', () => {
         }
     }
 });
+
+//
+// CALENDAR SCRIPTS
+//
+
+let monthArray = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+let date = new Date();
+let insertDay = '';
+
+// SETS MAX DAYS IN MONTH
+function monthLimit() {
+    let monthLimit = [31, [28, 29], 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    if ((date.getMonth() == 1) && (date.getFullYear() % 4 == 0)) { //Checks for leap years
+        return monthLimit[1][1];
+    } else if (date.getMonth() == 1) {
+        return monthLimit[1][0];
+    } else {
+        return monthLimit[date.getMonth()];
+    }
+};
+
+// POPULATES DATES IN CALENDAR
+function fillCal() {
+    date.setDate(1);
+    let day = date.getDay();
+    for (let i = day; i < monthLimit()+day; i+= 1) {
+        document.getElementById(i).innerHTML = date.getDate()+(i-day);
+    };
+
+    for (i = 0; i <= 41; i += 1) {
+        if (document.getElementById(i).innerHTML == '') {
+            document.getElementById(i).classList.add('empty');
+        } else {
+            document.getElementById(i).classList.remove('empty');
+        }
+    };
+};
+
+// EMPTIES ALL DATES FROM CALENDAR
+function clearCal() {
+    for (i=0; i<=41; i+=1) {
+        document.getElementById(i).innerHTML = '';
+    };
+};
+
+
+// DISPLAYS MONTH AND YEAR ABOVE CALENDAR
+function displayMonth() {
+    document.getElementById('calendar-title').innerHTML = monthArray[date.getMonth()] + ' ' + date.getFullYear();
+};
+
+// FUNCTIONS TO CHANGE MONTH/YEAR VALUES
+function nextMonth() {
+    let currentMonth = date.getMonth();
+    currentMonth+=1;
+    date.setMonth(currentMonth);
+};
+
+function prevMonth() {
+    let currentMonth = date.getMonth();
+    currentMonth = currentMonth-1;
+    date.setMonth(currentMonth);
+};
+
+function nextYear() {
+    let currentYear = date.getFullYear();
+    currentYear+=1;
+    date.setFullYear(currentYear);
+};
+
+function prevYear() {
+    let currentYear = date.getFullYear();
+    currentYear = currentYear - 1;
+    date.setFullYear(currentYear);
+};
+// END
+
+// EVENT LISTENERS FOR NEXT/PREV MONTH/YEAR BUTTONS
+document.getElementById('next-month').addEventListener('click', function(){
+    clearCal();
+    nextMonth();
+    fillCal();
+    displayMonth();
+});
+
+document.getElementById('last-month').addEventListener('click', function(){
+    clearCal();
+    prevMonth();
+    fillCal();
+    displayMonth();
+});
+
+document.getElementById('next-year').addEventListener('click', function(){
+    clearCal();
+    nextYear();
+    fillCal();
+    displayMonth();
+});
+
+document.getElementById('last-year').addEventListener('click', function(){
+    clearCal();
+    prevYear();
+    fillCal();
+    displayMonth();
+});
+// END
+
+// RETURNS CLICKED DATE FOR INSERTION
+
+for (let i=0; i<= 41; i+=1) {
+    document.getElementsByClassName('box')[i].addEventListener('click', function(){
+        if ((typeof this.textContent == "string") && (this.textContent.length <= 2)) {
+            insertDay = this.textContent;
+        }
+    });
+};
+
+// INSERTS DATE -- right now writes to console
+
+function insertDate() {
+    let monthNum = date.getMonth()+1;
+    let yearNum = date.getFullYear();
+    console.log('Due: ' + monthNum + '/' + insertDay + '/' + yearNum);
+};
+
+fillCal();
+displayMonth();
+
+//
+// END CALENDAR SCRIPTS
+//

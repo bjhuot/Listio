@@ -143,6 +143,96 @@ ul.saved-items li {
 }
 
 /**
+*** CALENDAR CSS
+**/
+
+#calendar-nav {
+    display: flex;
+    justify-content: center;
+}
+/* MONTH NAME & ARROW NAV */
+#cal-list {
+    display: flex;
+    justify-content: space-between;
+}
+
+#cal-list li {
+    align-self: center;
+}
+
+.arrow {
+    margin: 0 5px;
+}
+
+.arrow-right {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    transform: rotate(45deg);
+    border-top: 2px solid #333;
+    border-right: 2px solid #333;
+}
+
+.arrow-dbl-right {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    transform: rotate(45deg);
+    border-top: 5px double #333;
+    border-right: 5px double #333;
+}
+
+.arrow-left {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    transform: rotate(-135deg);
+    border-top: 2px solid #333;
+    border-right: 2px solid #333;
+}
+
+.arrow-dbl-left {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    transform: rotate(-135deg);
+    border-top: 5px double #333;
+    border-right: 5px double #333;
+}
+/* END MONTH NAME & ARROW NAV */
+
+/* CALENDAR DISPLAY */
+
+.row {
+    display: flex;
+    justify-content: center;
+}
+
+.row-days .box {
+    height: auto;
+}
+
+.box {
+    border: 1px gray solid;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.empty {
+    border-color: rgba(0,0,0,0);
+    height: 0px;
+}
+
+/* END CALENDAR DISPLAY */
+
+/**
+*** MODAL CSS
+**/
+
+/**
 *** MEDIA QUERIES
 **/
 
