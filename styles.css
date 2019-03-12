@@ -48,13 +48,15 @@ button {
 }
 
 .btnRemove {
-    background-color: #f50000;
+    /* background-color: #f50000; */
+    background-color: transparent;
     text-align: center;
-    color: black;
-    width: 30px;
-    height: 30px;
-    /* padding: 4px 7px; */
+    color: #f50000;
+    width: 40px;
+    height: 40px;
+    font-weight: bold;
     border-radius: 50%;
+    font-size: 1.5em;
 }
 
 .itemInput,
@@ -81,6 +83,18 @@ button {
     margin-bottom: 5px;
     font-weight: 100;
     font-family: Arial, Helvetica, sans-serif;
+}
+
+#cal {
+    position: absolute;
+    width: 25px;
+    z-index: 1;
+    right: 3px;
+    bottom: 7px;
+}
+
+.inputSpan {
+    position: relative;
 }
 
 .notepad textarea {
@@ -132,7 +146,13 @@ li.itemInput {
 
 .btnTriplet {
     align-self: center;
+    display: flex;
 }
+
+/* .btnRemove {
+    align-self: baseline;
+    margin-bottom: 8px;
+} */
 
 ul.saved-items li {
     display: flex;
@@ -231,6 +251,45 @@ ul.saved-items li {
 /**
 *** MODAL CSS
 **/
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+  }
+  
+  /* The Close Button */
+  .close {
+    margin-top: -20px;
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
 
 /**
 *** MEDIA QUERIES

@@ -35,7 +35,7 @@ function buttonDown(div) {
 function buttonRemove(div) {
     let buttonremove = document.createElement('BUTTON');
     buttonremove.classList.add('btnRemove');
-    buttonremove.textContent = 'X';
+    buttonremove.innerHTML = '&times;';
     div.appendChild(buttonremove);
 };
 
@@ -274,15 +274,19 @@ for (let i=0; i<= 41; i+=1) {
         if ((typeof this.textContent == "string") && (this.textContent.length <= 2)) {
             insertDay = this.textContent;
         }
+        insertDate();
     });
 };
 
-// INSERTS DATE -- right now writes to console
+// INSERTS DATE
 
 function insertDate() {
     let monthNum = date.getMonth()+1;
     let yearNum = date.getFullYear();
-    console.log('Due: ' + monthNum + '/' + insertDay + '/' + yearNum);
+    var insertDate = monthNum + '/' + insertDay + '/' + yearNum;
+    document.getElementsByClassName('itemDescPrime')[0].focus();
+    document.execCommand('insertText', false, insertDate);
+    document.getElementById('cal-modal').style.display = "none";
 };
 
 fillCal();
@@ -290,4 +294,30 @@ displayMonth();
 
 //
 // END CALENDAR SCRIPTS
+//
+
+//
+// MODAL SCRIPTS
+//
+
+// Listens for click event on calendar image to open modal
+
+document.getElementById('cal').addEventListener('click', function(){
+    document.getElementById('cal-modal').style.display = "block";
+});
+
+document.addEventListener('click', function(event){
+    if((event.target == document.getElementById('close')) || (event.target == document.getElementById('cal-modal'))) {
+        document.getElementById('cal-modal').style.display = "none";
+    }
+    });
+
+document.addEventListener('keydown', e => {
+    if (e.keyCode == 27) {
+        document.getElementById('cal-modal').style.display = "none";
+    }
+});
+
+//
+// END MODAL SCRIPTS
 //
