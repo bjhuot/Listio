@@ -93,7 +93,8 @@ button {
     bottom: 7px;
 }
 
-.inputSpan {
+.inputSpan,
+form {
     position: relative;
 }
 
@@ -127,10 +128,15 @@ input[type=checkbox] {
     margin: 0;
 }
 
-li.itemInput {
+li.itemInput,
+form {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
+}
+
+form {
+    width: 100%;
 }
 
 .inputSpan {

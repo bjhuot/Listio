@@ -101,7 +101,8 @@ function enableCheck() {
 
 //Calls newInput() when 'Save' button is clicked & copies content
 
-document.querySelector('.save').addEventListener('click', () => {
+document.querySelector('.save').addEventListener('click', (e) => {
+    e.preventDefault();
     newInput();
     copyContent();
     document.querySelector('.itemInputPrime').value = '';
@@ -158,6 +159,13 @@ document.querySelector('ul.saved-items').addEventListener('click', () => {
         } else { //removes strike-through
             document.querySelectorAll('[type=checkbox]')[i].nextElementSibling.firstChild.classList.remove('strike');
         }
+    }
+});
+
+// Submits list entry when 'Enter' key is pressed
+document.addEventListener('keydown', e => {
+    if ((e.key == 'Enter' && e.shiftKey) && (document.activeElement == document.getElementsByClassName('itemDescPrime')[0])) {
+        document.getElementsByClassName('save')[0].click();
     }
 });
 
