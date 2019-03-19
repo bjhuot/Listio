@@ -314,11 +314,15 @@ document.getElementById('cal').addEventListener('click', function(){
     document.getElementById('cal-modal').style.display = "block";
 });
 
+// Closes modal when clicking outside of content area
+
 document.addEventListener('click', function(event){
     if((event.target == document.getElementById('close')) || (event.target == document.getElementById('cal-modal'))) {
         document.getElementById('cal-modal').style.display = "none";
     }
     });
+
+// Closes modal on press of 'Esc'
 
 document.addEventListener('keydown', e => {
     if (e.keyCode == 27) {
