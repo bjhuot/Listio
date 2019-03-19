@@ -46,6 +46,7 @@ button {
 .btnDown,
 .save {
     background-color: #53dab3;
+    border: 1px solid #333;
 }
 
 .btnRemove {
@@ -109,14 +110,12 @@ form {
     margin-right: 0;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
-    border: 1px solid #333;
 }
 
 .btnDown {
     margin-left: 0;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
-    border: 1px solid #333;
 }
 
 /** 
