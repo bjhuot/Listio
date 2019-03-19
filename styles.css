@@ -251,6 +251,24 @@ ul.saved-items li {
 
 /* END CALENDAR DISPLAY */
 
+footer {
+    font-size: .75em;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    background-color: #53dab3;
+}
+
+footer span {
+    position: absolute;
+    bottom: 0;
+    left: -14px;
+    border-top-left-radius: 50%;
+    height: 14px;
+    width: 14px;
+    background-color: #53dab3;
+}
+
 /**
 *** MODAL CSS
 **/
