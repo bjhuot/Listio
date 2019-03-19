@@ -330,6 +330,14 @@ footer span {
 
 @media screen and (max-width: 374px) {
     .inputSpan {
+        max-width: 75%;
+    }
+
+    .saved-items .inputSpan {
         max-width: 50%;
+    }
+
+    textarea {
+        max-width: 99%;
     }
 }
