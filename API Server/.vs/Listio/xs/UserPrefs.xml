@@ -1,0 +1,32 @@
+﻿<Properties StartupConfiguration="{8A1ECD51-4075-44B8-ABAD-F5216ADF29DE}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Listio/Models/Todo.cs">
+    <Files>
+      <File FileName="Listio/Models/Todo.cs" Line="10" Column="22" />
+      <File FileName="Listio/Models/Note.cs" />
+      <File FileName="Listio/Controllers/NoteController.cs" />
+      <File FileName="Listio/Models/TodoContext.cs" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Listio" expanded="True">
+            <Node name="Listio" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="Models" expanded="True">
+                <Node name="Todo.cs" selected="True" />
+              </Node>
+              <Node name="Properties" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.Listio PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

@@ -1,0 +1,28 @@
+/Users/brianhuot/Projects/Listio/Listio/obj/Debug/netcoreapp2.1/Listio.csprojAssemblyReference.cache
+/Users/brianhuot/Projects/Listio/Listio/obj/Debug/netcoreapp2.1/Listio.csproj.CoreCompileInputs.cache
+/Users/brianhuot/Projects/Listio/Listio/obj/Debug/netcoreapp2.1/Listio.RazorAssemblyInfo.cache
+/Users/brianhuot/Projects/Listio/Listio/obj/Debug/netcoreapp2.1/Listio.RazorAssemblyInfo.cs
+/Users/brianhuot/Projects/Listio/Listio/obj/Debug/netcoreapp2.1/Listio.AssemblyInfoInputs.cache
+/Users/brianhuot/Projects/Listio/Listio/obj/Debug/netcoreapp2.1/Listio.AssemblyInfo.cs
+/Users/brianhuot/Projects/Listio/Listio/bin/Debug/netcoreapp2.1/Listio.deps.json
+/Users/brianhuot/Projects/Listio/Listio/bin/Debug/netcoreapp2.1/Listio.runtimeconfig.json
+/Users/brianhuot/Projects/Listio/Listio/bin/Debug/netcoreapp2.1/Listio.runtimeconfig.dev.json
+/Users/brianhuot/Projects/Listio/Listio/bin/Debug/netcoreapp2.1/Listio.dll
+/Users/brianhuot/Projects/Listio/Listio/bin/Debug/netcoreapp2.1/Listio.pdb
+/Users/brianhuot/Projects/Listio/Listio/obj/Debug/netcoreapp2.1/Listio.RazorTargetAssemblyInfo.cache
+/Users/brianhuot/Projects/Listio/Listio/obj/Debug/netcoreapp2.1/Listio.dll
+/Users/brianhuot/Projects/Listio/Listio/obj/Debug/netcoreapp2.1/Listio.pdb
+/Users/brianhuot/coding/Listio/API Server/Listio/bin/Debug/netcoreapp2.1/Listio.deps.json
+/Users/brianhuot/coding/Listio/API Server/Listio/bin/Debug/netcoreapp2.1/Listio.runtimeconfig.json
+/Users/brianhuot/coding/Listio/API Server/Listio/bin/Debug/netcoreapp2.1/Listio.runtimeconfig.dev.json
+/Users/brianhuot/coding/Listio/API Server/Listio/bin/Debug/netcoreapp2.1/Listio.dll
+/Users/brianhuot/coding/Listio/API Server/Listio/bin/Debug/netcoreapp2.1/Listio.pdb
+/Users/brianhuot/coding/Listio/API Server/Listio/obj/Debug/netcoreapp2.1/Listio.csprojAssemblyReference.cache
+/Users/brianhuot/coding/Listio/API Server/Listio/obj/Debug/netcoreapp2.1/Listio.csproj.CoreCompileInputs.cache
+/Users/brianhuot/coding/Listio/API Server/Listio/obj/Debug/netcoreapp2.1/Listio.RazorAssemblyInfo.cache
+/Users/brianhuot/coding/Listio/API Server/Listio/obj/Debug/netcoreapp2.1/Listio.RazorAssemblyInfo.cs
+/Users/brianhuot/coding/Listio/API Server/Listio/obj/Debug/netcoreapp2.1/Listio.AssemblyInfoInputs.cache
+/Users/brianhuot/coding/Listio/API Server/Listio/obj/Debug/netcoreapp2.1/Listio.AssemblyInfo.cs
+/Users/brianhuot/coding/Listio/API Server/Listio/obj/Debug/netcoreapp2.1/Listio.RazorTargetAssemblyInfo.cache
+/Users/brianhuot/coding/Listio/API Server/Listio/obj/Debug/netcoreapp2.1/Listio.dll
+/Users/brianhuot/coding/Listio/API Server/Listio/obj/Debug/netcoreapp2.1/Listio.pdb
