@@ -1,26 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
+import Nav from './Modules/Nav'
+import TodoItems from './Modules/TodoItems'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends Component {
+  constructor(props) {
+    super(props)
+      this.state = {
+        todos: [],
+        notes: []
+      }
+
+  }
+
+  componentDidMount() {
+    this.fetchApi("https://localhost:5001/api/todo/", "todos")
+    this.fetchApi("https://localhost:5001/api/note/", "notes")
+  }
+
+  fetchApi = (url, state) => {
+    fetch(url)
+      .then(res => res.json())
+      .then(parsed => this.setState({
+        [state]: parsed
+      }))
+  }
+
+  render() {
+    return (
+      <div>
+      <Nav />
+      <TodoItems
+      todos={this.state.todos} />
+      </div>
+    )
+  }
 }
 
 export default App;

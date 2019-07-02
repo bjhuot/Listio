@@ -1,0 +1,76 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/brianhuot/coding/listio/API Server/Listio/Listio.csproj": {}
+  },
+  "projects": {
+    "/Users/brianhuot/coding/listio/API Server/Listio/Listio.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/brianhuot/coding/listio/API Server/Listio/Listio.csproj",
+        "projectName": "Listio",
+        "projectPath": "/Users/brianhuot/coding/listio/API Server/Listio/Listio.csproj",
+        "packagesPath": "/Users/brianhuot/.nuget/packages/",
+        "outputPath": "/Users/brianhuot/coding/listio/API Server/Listio/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/Users/brianhuot/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.1": {
+          "dependencies": {
+            "LiteDB": {
+              "target": "Package",
+              "version": "[4.1.4, )"
+            },
+            "Microsoft.AspNetCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.1.1, )",
+              "autoReferenced": true
+            },
+            "Microsoft.AspNetCore.Cors": {
+              "target": "Package",
+              "version": "[2.1.1, )"
+            },
+            "Microsoft.AspNetCore.Razor.Design": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.1.2, )"
+            },
+            "Microsoft.NETCore.App": {
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}
