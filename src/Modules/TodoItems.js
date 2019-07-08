@@ -1,14 +1,18 @@
-import React, {Component} from "react";
+import React from "react";
 import TodoItem from './TodoItem'
 
-class TodoItems extends Component {
-    render() {
+const TodoItems = (props) => {
+    return props.todos.map(function(todo) {
         return (
-            <TodoItem 
-                todos={this.props.todos}
-            />
+            <div className="col-12">
+                <div className="list-group">
+                    <TodoItem 
+                        todo={todo}
+                    />
+                </div>
+            </div>
         )
-    }
+    })
 }
 
 export default TodoItems;

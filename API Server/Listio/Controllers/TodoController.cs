@@ -98,15 +98,20 @@ namespace Listio.Controllers
                 {
                     todoid.Detail = todo.Detail;
                 }
-                if (todo.Tag != null)
+                if (todo.Tags != null)
                 {
-                    todoid.Tag = todo.Tag;
+                    todoid.Tags = todo.Tags;
                 }
-                if (!(todo.Due == new DateTime(0)))
+                if (todo.DateDue != null)
                 {
-                    todoid.Due = todo.Due;
+                    todoid.DateDue = todo.DateDue;
                 }
-                todoid.Created = todoid.Created;
+                if (todo.TimeDue != null)
+                {
+                    todoid.TimeDue = todo.TimeDue;
+                }
+                todoid.DateCreated = todoid.DateCreated;
+                todoid.TimeCreated = todoid.TimeCreated;
 
                 col.Update(todoid);
                 return NoContent();

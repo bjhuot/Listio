@@ -97,11 +97,12 @@ namespace Listio.Controllers
                 {
                     noteid.Body = note.Body;
                 }
-                if (note.Tag != null)
+                if (note.Tags != null)
                 {
-                    noteid.Tag = note.Tag;
+                    noteid.Tags = note.Tags;
                 }
-                noteid.Created = noteid.Created;
+                noteid.DateCreated = noteid.DateCreated;
+                noteid.TimeCreated = noteid.TimeCreated;
 
                 col.Update(noteid);
                 return NoContent();

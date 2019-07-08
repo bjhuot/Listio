@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import './App.css';
-import Nav from './Modules/Nav'
-import TodoItems from './Modules/TodoItems'
+import Body from './Modules/Body'
+import Header from './Modules/Header'
+import Nav from "./Modules/Nav";
 
 
 class App extends Component {
@@ -29,10 +30,16 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-      <Nav />
-      <TodoItems
-      todos={this.state.todos} />
+      <div className="container">
+        <div className="row">
+          <div className="col">
+          <Header />
+          <Nav />
+          </div>
+        </div>
+        <div className="row">
+            <Body todos={this.state.todos} notes={this.state.notes}/>
+        </div>        
       </div>
     )
   }

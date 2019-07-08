@@ -1,42 +1,45 @@
-import React, {Component} from "react";
+import React from "react";
 
-class TodoItem extends Component {
-    constructor(TodoItem) {
-      super()
-      this.state = {
-        todo: {
-          id: '',
-          name: '',
-          detail: '',
-          tag: '',
-          isCompleted: false,
-          created: '',
-          due: ''
-        }
-      }
+const TodoItem = ({todo}) => {
+
+  function timeDue() {
+    if (todo.timeDue === "12:00 AM") {
+      return "None"
     }
+    return todo.timeDue
+  }
 
-    //TODO: LOOK AT PERSON/PEOPLE FROM CLASS PROJECT TO SEE HOW THAT WAS MODELED
-
-    render() {
-      // this.props.todos.foreach(todo => {
-
-      // })
-
-        return(
-            <a href="#" className="list-group-item list-group-item-action active">
-              <div className="d-flex w-100 justify-content-between"> {/* From API: todo.IsCompleted class added if complete */}
-                <h5 className="mb-1">List group item heading</h5> {/* From API: todo.Name */}
-                <small>3 days ago</small> {/* From API: DateTime.Date - todo.Created.Date */}
-              </div>
-              <p className="mb-1"> {/* From API: todo.Detail */}
-                Donec id elit non mi porta gravida at eget metus. Maecenas sed diam
-                eget risus varius blandit.
-              </p>
-              <small>Donec id elit non mi porta.</small> {/* From API: todo.Due */}
-            </a>
-      )
+  function dateDue() {
+    if (todo.dateDue === "1/1/01") {
+      return "None"
     }
+    return todo.dateDue
+  }
+
+  function tags() {
+    if(todo.tags != null) {
+    return todo.tags.join(', ')
+  }
+}
+
+  return(
+    <div className="list-group-item list-group-item-action">
+      <div className="d-flex w-100 justify-content-between"> {/* From API: todo.IsCompleted class added if complete */}
+        <h5 className="mb-1">{todo.name}</h5> {/* From API: todo.Name */}
+        <small></small> {/* From API: DateTime.Date - todo.Created.Date */}
+      </div>
+      <p className="mb-1"> {/* From API: todo.Detail */}
+        {todo.detail}
+      </p>
+      <p>
+        {tags()}
+      </p>
+      <small>
+        {`Time Due: ${timeDue()}`}<br />
+        {`Date Due: ${dateDue()}`}
+      </small> {/* From API: todo.Due */}
+    </div>
+  )
 }
 
 export default TodoItem;
