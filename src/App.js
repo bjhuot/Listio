@@ -10,22 +10,60 @@ class App extends Component {
     super(props)
       this.state = {
         todos: [],
-        notes: []
+        notes: [],
+        nameInput: "Enter a new to-do item...",
+        detailInput: "",
+        tagsInput: [],
+        dateDueInput: "",
+        timeDueInput: "",
+        bodyInput: ""
       }
 
   }
 
   componentDidMount() {
-    this.fetchApi("https://localhost:5001/api/todo/", "todos")
-    this.fetchApi("https://localhost:5001/api/note/", "notes")
+    this.getApi("https://localhost:5001/api/todo/", "todos")
+    this.getApi("https://localhost:5001/api/note/", "notes")
   }
 
-  fetchApi = (url, state) => {
+  getApi = (url, state) => {
     fetch(url)
       .then(res => res.json())
       .then(parsed => this.setState({
         [state]: parsed
       }))
+  }
+
+  deleteApi = (url, id, category) => {
+    fetch(url + id, {
+      method: 'delete'
+    })
+      .then(response => {
+        if(response.status === 204) {
+          this.getApi(url, category)
+          }
+        }
+      )
+  }
+
+  addApi = (url, data, category) => {
+    fetch(url, {
+      method: 'POST',
+      headers: new Headers({
+        'Content-type': 'application/json'
+      }),
+      body: JSON.stringify(data)
+    })
+      .then(response => {
+        if(response.status === 201) {
+          this.getApi(url, category)
+        }
+      })
+      .catch(err => console.error(err))
+  }
+
+  nameChange = (e) => {
+    this.setState({nameInput:e.target.value})
   }
 
   render() {
@@ -37,9 +75,9 @@ class App extends Component {
           <Nav />
           </div>
         </div>
-        <div className="row">
-            <Body todos={this.state.todos} notes={this.state.notes}/>
-        </div>        
+        <Body todos={this.state.todos} notes={this.state.notes}
+        deleteapi={this.deleteApi} addapi={this.addApi}
+        nc={this.nameChange} name={this.state.nameInput} />
       </div>
     )
   }

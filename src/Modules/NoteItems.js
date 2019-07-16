@@ -2,14 +2,13 @@ import React from 'react'
 import NoteItem from './NoteItem'
 
 const NoteItems = (props) => {
-    return props.notes.map(function(note) { 
-        return(
-            <div className="col-4">
+    
+    return props.notes.map(function(note) {
+            return(
                 <NoteItem 
-                        note={note}
-                    />
-            </div>
-        )
+                    note={note}
+                />
+            )
     })
 }
 
