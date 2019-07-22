@@ -46,7 +46,6 @@ const Body = props => {
                   tagsInput={props.tagsInput}
                   tags={props.tags}
                   addtag={props.addtag}
-                  removeTag={props.removeTag}
                   ddc={props.ddc}
                   dateDueInput={props.dateDueInput}
                   tdc={props.tdc}
