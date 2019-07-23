@@ -1,5 +1,7 @@
-import React, { Component } from "react";
-
+import React, { Component } from 'react'
+///////////////
+// JUMBOTRON //
+///////////////
 class Header extends Component {
   render() {
     return (
@@ -12,8 +14,8 @@ class Header extends Component {
           </p>
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default Header;
+export default Header

@@ -1,14 +1,19 @@
 # Listio
 
-A front-end demonstration of a list & note-taking webapp.
+A functioning to-do and note taking app to fulfill the May 2019 React.JS and C# class requirements.
 
-This project was done to fulfill the requirements of the January 2019 Code Louisville Front End Web Development course.
+## React.JS
 
-As it exists right now, it contains basic functionality within the current session. Users are able to create to-do items
-consisting of a headline title and, optionally, a description with more details. The page also includes a calendar which,
-when opened, enables users to click the date and have it inserted into the description field to facilitate due dates, etc. 
-The list can be reordered and items can be checked off (with the title then being struck through) or removed completely. 
-In addition there is a scratch-pad area for note-taking that, when the window is resized (or on smaller devices), moves to 
-the bottom of the page.
+Connects to an API and utilizes CRUD features to interact with the API. Users can create, retrieve, update, and delete both to-dos and notes, as well as view them by due date on a calendar.
 
-Stretch goals include a persistent session and a mobile app.
+## C
+
+Backend API constructed with a database for persistence, the frontend serves as both the source of the data and method of access, as an alternative to the command line.
+
+## Inactive features
+
+Due date
+Due time
+Note API
+Calendar
+CSS/Custom layout

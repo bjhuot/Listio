@@ -1,54 +1,109 @@
-import React, { Component } from "react"
-import "./App.css"
-import Body from "./Modules/Body"
-import Header from "./Modules/Header"
-import Nav from "./Modules/Nav"
+import React, { Component } from 'react'
+import './App.css'
+import Body from './Modules/Body'
+import Header from './Modules/Header'
+import Nav from './Modules/Nav'
 
 class App extends Component {
+  /////////////////////////////////
+  // STATE AND RELATED FUNCTIONS //
+  /////////////////////////////////
+
   constructor(props) {
     super(props)
     this.state = {
       todos: [],
       notes: [],
-      nameInput: "",
-      detailInput: "",
+      nameInput: '',
+      detailInput: '',
       tags: [],
-      tagsInput: "",
-      dateDueInput: "",
-      month: "",
-      day: "",
-      year: "",
-      timeDueInput: "",
-      hour: "",
-      minute: "",
-      ampm: "",
-      bodyInput: "",
+      tagsInput: '',
+      dateDueInput: '',
+      month: '',
+      day: '',
+      year: '',
+      timeDueInput: '',
+      hour: '',
+      minute: '',
+      ampm: '',
+      bodyInput: '',
     }
   }
 
-  removeTag = e => {
-    const newTags = this.state.tags.filter(tag => tag !== e.target.innerHTML)
+  resetState = () => {
+    // Resets state values after submission of a todo or note item
+    this.setState({
+      nameInput: '',
+      detailInput: '',
+      tags: [],
+      tagsInput: '',
+      dateDueInput: '',
+      timeDueInput: '',
+      bodyInput: '',
+    })
+  }
+
+  setDateTime = () => {
+    // Joins date and time values (set from drop down menus) into valid submission format
+    const interim = [this.state.month, this.state.day, this.state.year]
+    this.setState({ dateDueInput: interim.join('/') })
+    const interim2 = [this.state.hour, this.state.minute, ` ${this.state.ampm}`]
+    this.setState({ timeDueInput: interim2.join('') })
+  }
+
+  // Removes/Adds tag from array when creating or editing todo/note items
+
+  removeTag = (e) => {
+    const newTags = this.state.tags.filter((tag) => tag !== e.target.innerHTML)
     this.setState({ tags: newTags })
   }
 
-  addTag = e => {
-    if (e.key === "Enter") {
-      this.setState(prevState => ({
+  addTag = (e) => {
+    if (e.key === 'Enter') {
+      this.setState((prevState) => ({
         tags: [...prevState.tags, this.state.tagsInput],
       }))
-      this.setState({ tagsInput: "" })
+      this.setState({ tagsInput: '' })
     }
   }
 
+  /////////////////////////
+  // MANAGED INPUT FIELD //
+  /////////////////////////
+
+  nameChange = (e) => {
+    this.setState({ nameInput: e.target.value })
+  }
+
+  detailChange = (e) => {
+    this.setState({ detailInput: e.target.value })
+  }
+
+  tagsChange = (e) => {
+    this.setState({ tagsInput: e.target.value })
+  }
+
+  bodyChange = (e) => {
+    this.setState({ bodyInput: e.target.value })
+  }
+
+  setDateTimeDue = (e) => {
+    this.setState({ [e.target.id]: e.target.value })
+  }
+
+  ///////////////////////////
+  // API RELATED FUNCTIONS //
+  ///////////////////////////
+
   componentDidMount() {
-    this.getApi("https://localhost:5001/api/todo/", "todos")
-    this.getApi("https://localhost:5001/api/note/", "notes")
+    this.getApi('https://localhost:5001/api/todo/', 'todos')
+    this.getApi('https://localhost:5001/api/note/', 'notes')
   }
 
   getApi = (url, state) => {
     fetch(url)
-      .then(res => res.json())
-      .then(parsed =>
+      .then((res) => res.json())
+      .then((parsed) =>
         this.setState({
           [state]: parsed,
         })
@@ -57,35 +112,16 @@ class App extends Component {
 
   deleteApi = (url, id, category) => {
     fetch(url + id, {
-      method: "delete",
-    }).then(response => {
+      method: 'delete',
+    }).then((response) => {
       if (response.status === 204) {
         this.getApi(url, category)
       }
     })
   }
 
-  resetState = () => {
-    this.setState({
-      nameInput: "",
-      detailInput: "",
-      tags: [],
-      tagsInput: "",
-      dateDueInput: "",
-      timeDueInput: "",
-      bodyInput: "",
-    })
-  }
-
-  setDateTime = () => {
-    const interim = [this.state.month, this.state.day, this.state.year]
-    this.setState({ dateDueInput: interim.join("/") })
-    const interim2 = [this.state.hour, this.state.minute, ` ${this.state.ampm}`]
-    this.setState({ timeDueInput: interim2.join("") })
-  }
-
-  sleep = milliseconds => {
-    return new Promise(resolve => setTimeout(resolve, milliseconds))
+  sleep = (milliseconds) => {
+    return new Promise((resolve) => setTimeout(resolve, milliseconds))
   }
 
   addApi = (url, data, category) => {
@@ -93,18 +129,18 @@ class App extends Component {
 
     this.sleep(1000).then(() => {
       fetch(url, {
-        method: "POST",
+        method: 'POST',
         headers: new Headers({
-          "Content-type": "application/json",
+          'Content-type': 'application/json',
         }),
         body: JSON.stringify(data),
       })
-        .then(response => {
+        .then((response) => {
           if (response.status === 201) {
             this.getApi(url, category)
           }
         })
-        .catch(err => console.error(err))
+        .catch((err) => console.error(err))
 
       this.sleep(1000).then(() => {
         this.resetState()
@@ -114,42 +150,20 @@ class App extends Component {
 
   updateApi = (url, id, data, category) => {
     fetch(url + id, {
-      method: "put",
+      method: 'put',
       headers: new Headers({
-        "Content-type": "application/json",
+        'Content-type': 'application/json',
       }),
       body: JSON.stringify(data),
     })
-      .then(response => {
+      .then((response) => {
         if (response.status === 204) {
           this.getApi(url, category)
         }
       })
-      .catch(err => console.error(err))
+      .catch((err) => console.error(err))
 
     this.resetState()
-  }
-
-  //Input field state changes
-
-  nameChange = e => {
-    this.setState({ nameInput: e.target.value })
-  }
-
-  detailChange = e => {
-    this.setState({ detailInput: e.target.value })
-  }
-
-  tagsChange = e => {
-    this.setState({ tagsInput: e.target.value })
-  }
-
-  bodyChange = e => {
-    this.setState({ bodyInput: e.target.value })
-  }
-
-  setDateTimeDue = e => {
-    this.setState({ [e.target.id]: e.target.value })
   }
 
   render() {

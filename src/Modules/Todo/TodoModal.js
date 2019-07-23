@@ -1,67 +1,62 @@
-import React from "react"
+import React from 'react'
 
-const TodoEditModal = props => {
-  let todoData = {
-    id: props.todo.id,
-    name: props.nameInput,
-    detail: props.detailInput,
-    tags: props.tags,
-    dateDue: props.dateDueInput,
-    timeDue: props.timeDueInput,
-  }
+///////////////////////////////
+// DROP DOWN ARRAYS AND MAPS //
+///////////////////////////////
 
+const TodoModal = (props) => {
   const months = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "June",
-    "July",
-    "Aug",
-    "Sept",
-    "Oct",
-    "Nov",
-    "Dec",
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'June',
+    'July',
+    'Aug',
+    'Sept',
+    'Oct',
+    'Nov',
+    'Dec',
   ]
-  const monthArray = months.map(month => {
+  const monthArray = months.map((month) => {
     return <option>{month}</option>
   })
   const dates = [
-    "1",
-    "2",
-    "3",
-    "4",
-    "5",
-    "6",
-    "7",
-    "8",
-    "9",
-    "10",
-    "11",
-    "12",
-    "13",
-    "14",
-    "15",
-    "16",
-    "17",
-    "18",
-    "19",
-    "20",
-    "21",
-    "22",
-    "23",
-    "24",
-    "25",
-    "26",
-    "27",
-    "28",
-    "29",
-    "30",
-    "31",
+    '1',
+    '2',
+    '3',
+    '4',
+    '5',
+    '6',
+    '7',
+    '8',
+    '9',
+    '10',
+    '11',
+    '12',
+    '13',
+    '14',
+    '15',
+    '16',
+    '17',
+    '18',
+    '19',
+    '20',
+    '21',
+    '22',
+    '23',
+    '24',
+    '25',
+    '26',
+    '27',
+    '28',
+    '29',
+    '30',
+    '31',
   ]
 
-  const dateArray = dates.map(date => {
+  const dateArray = dates.map((date) => {
     return <option>{date}</option>
   })
 
@@ -75,34 +70,33 @@ const TodoEditModal = props => {
     return years
   }
 
-  const yearArray = yearSet().map(year => {
+  const yearArray = yearSet().map((year) => {
     return <option>{year}</option>
   })
 
-  const hours = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]
-  const hourArray = hours.map(hour => {
+  const hours = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+  const hourArray = hours.map((hour) => {
     return <option>{hour}</option>
   })
   const minutes = [
-    ":00",
-    ":05",
-    ":10",
-    ":15",
-    ":20",
-    ":25",
-    ":30",
-    ":35",
-    ":40",
-    ":45",
-    ":50",
-    ":55",
+    ':00',
+    ':05',
+    ':10',
+    ':15',
+    ':20',
+    ':25',
+    ':30',
+    ':35',
+    ':40',
+    ':45',
+    ':50',
+    ':55',
   ]
-  const minuteArray = minutes.map(minute => {
+  const minuteArray = minutes.map((minute) => {
     return <option>{minute}</option>
   })
 
-  let tagArray = [...props.todo.tags, ...props.tagsInput]
-  tagArray = props.todo.tags.map(tag => {
+  const tagArray = props.tags.map((tag) => {
     return (
       <span
         className="badge badge-pill badge-secondary tag"
@@ -115,20 +109,16 @@ const TodoEditModal = props => {
 
   return (
     <div>
-      <div className="btn-toolbar" role="toolbar">
-        <div classname="btn-group" role="group">
-          <button
-            type="button"
-            className="btn btn-secondary"
-            data-toggle="modal"
-            data-target={props.idmid}
-          >
-            &#9998;
-          </button>
-        </div>
-      </div>
+      <button
+        type="button"
+        className="btn btn-link"
+        data-toggle="modal"
+        data-target="#todoModal"
+      >
+        Add Details
+      </button>
       <div
-        id={props.mid}
+        id="todoModal"
         className="modal"
         tabindex="-1"
         role="dialog"
@@ -137,7 +127,9 @@ const TodoEditModal = props => {
         <div className="modal-dialog modal-lg" role="document">
           <div className="modal-content">
             <div className="modal-body">
-              {/* !!!!! MODAL FORM BEGINS HERE!!!!! */}
+              {/*   ////////////////
+                    // MODAL FORM //
+                    //////////////// */}
               <form>
                 <div className="form-group">
                   <label for="nameInputModal">To-do Item</label>
@@ -147,7 +139,6 @@ const TodoEditModal = props => {
                     id="nameInputModal"
                     value={props.nameInput}
                     onChange={props.nc}
-                    defaultValue={props.todo.name}
                   />
                 </div>
                 <div className="form-group">
@@ -158,7 +149,6 @@ const TodoEditModal = props => {
                     id="detailInputModal"
                     value={props.detailInput}
                     onChange={props.dc}
-                    defaultValue={props.todo.detail}
                   />
                 </div>
                 <div className="form-group">
@@ -180,7 +170,7 @@ const TodoEditModal = props => {
                     <select
                       class="form-control form-control-sm date"
                       id="month"
-                      onChange={e => {
+                      onChange={(e) => {
                         props.setDateTimeDue(e)
                       }}
                     >
@@ -192,7 +182,7 @@ const TodoEditModal = props => {
                     <select
                       class="form-control form-control-sm date"
                       id="day"
-                      onChange={e => {
+                      onChange={(e) => {
                         props.setDateTimeDue(e)
                       }}
                     >
@@ -204,7 +194,7 @@ const TodoEditModal = props => {
                     <select
                       class="form-control form-control-sm date"
                       id="year"
-                      onChange={e => {
+                      onChange={(e) => {
                         props.setDateTimeDue(e)
                       }}
                     >
@@ -217,7 +207,7 @@ const TodoEditModal = props => {
                     <select
                       class="form-control form-control-sm time"
                       id="hour"
-                      onChange={e => {
+                      onChange={(e) => {
                         props.setDateTimeDue(e)
                       }}
                     >
@@ -229,7 +219,7 @@ const TodoEditModal = props => {
                     <select
                       class="form-control form-control-sm time"
                       id="minute"
-                      onChange={e => {
+                      onChange={(e) => {
                         props.setDateTimeDue(e)
                       }}
                     >
@@ -241,7 +231,7 @@ const TodoEditModal = props => {
                     <select
                       class="form-control form-control-sm time"
                       id="ampm"
-                      onChange={e => {
+                      onChange={(e) => {
                         props.setDateTimeDue(e)
                       }}
                     >
@@ -265,16 +255,24 @@ const TodoEditModal = props => {
               <button
                 type="button"
                 className="btn btn-primary"
+                // onClick={() => {
+                //   props.addapi(
+                //     "https://localhost:5001/api/todo/",
+                //     props.todoData,
+                //     "todos"
+                //   )
+                // }}
                 onClick={() => {
-                  props.updateApi(
-                    "https://localhost:5001/api/todo/",
-                    props.todo.id,
-                    todoData,
-                    "todos"
-                  )
+                  props.setDateTime()
+                  console.log(props.todoData.timeDue)
+                  const tD = JSON.stringify(props.todoData.timeDue)
+                  console.log(tD)
+                  console.log(typeof tD)
+                  console.log(props.timeDueInput)
+                  console.log(props.todoData.name)
                 }}
               >
-                Save Item
+                Add Item
               </button>
             </div>
           </div>
@@ -284,4 +282,4 @@ const TodoEditModal = props => {
   )
 }
 
-export default TodoEditModal
+export default TodoModal

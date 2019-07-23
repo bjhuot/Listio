@@ -1,7 +1,10 @@
-import React from "react"
-import TodoModal from "./TodoModal"
+import React from 'react'
+import TodoModal from './TodoModal'
 
-const AddTodo = props => {
+//////////////////////////////
+// DATA OBJECT TO STRINGIFY //
+//////////////////////////////
+const AddTodo = (props) => {
   let todoData = {
     name: props.nameInput,
     detail: props.detailInput,
@@ -30,9 +33,9 @@ const AddTodo = props => {
             className="btn btn-link"
             onClick={() =>
               props.addapi(
-                "https://localhost:5001/api/todo/",
+                'https://localhost:5001/api/todo/',
                 todoData,
-                "todos"
+                'todos'
               )
             }
           >
@@ -60,8 +63,6 @@ const AddTodo = props => {
         </div>
       </div>
     </div>
-
-    // MODAL
   )
 }
 

@@ -1,15 +1,18 @@
-import React from "react"
-import { Switch, Route } from "react-router-dom"
-import TodoItems from "./TodoItems"
-import NoteItems from "./NoteItems"
-import AddTodo from "./AddTodo"
+import React from 'react'
+import { Switch, Route } from 'react-router-dom'
+import TodoItems from './Todo/TodoItems'
+import NoteItems from './Note/NoteItems'
+import AddTodo from './Todo/AddTodo'
 
-const Body = props => {
+const Body = (props) => {
   return (
+    //////////////////
+    // ROUTE SWITCH //
+    //////////////////
     <Switch>
       <Route
         path="/TodoItems"
-        render={routeProps => (
+        render={(routeProps) => (
           <div className="row">
             <div className="col">
               <AddTodo
@@ -60,7 +63,7 @@ const Body = props => {
       />
       <Route
         path="/NoteItems"
-        render={routeProps => (
+        render={(routeProps) => (
           <div className="row">
             <NoteItems component={NoteItems} notes={props.notes} />
           </div>

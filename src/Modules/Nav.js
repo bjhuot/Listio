@@ -1,10 +1,15 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react'
+import { Link } from 'react-router-dom'
 
 function Nav() {
   return (
+    ////////////
+    // NAVBAR //
+    ////////////
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <Link className="navbar-brand" to="/">list.IO</Link>
+      <Link className="navbar-brand" to="/">
+        list.IO
+      </Link>
       <button
         className="navbar-toggler"
         type="button"
@@ -35,6 +40,9 @@ function Nav() {
             </Link>
           </li>
         </ul>
+        {/* //////////////////
+     // SEARCH FIELD //
+     ////////////////// */}
         <form className="form-inline my-2 my-lg-0">
           <input
             className="form-control mr-sm-2"
@@ -52,7 +60,7 @@ function Nav() {
         </form>
       </div>
     </nav>
-  );
+  )
 }
 
-export default Nav;
+export default Nav

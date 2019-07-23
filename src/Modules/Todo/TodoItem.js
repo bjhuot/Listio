@@ -1,24 +1,26 @@
-import React from "react"
-import TodoEditModal from "./TodoEditModal"
+import React from 'react'
+import TodoEditModal from './TodoEditModal'
 
 const TodoItem = ({ todo, deleteapi, removeTag, updateApi, ...props }) => {
+  // Sets null/default response for Date/Time Due from API to "None"
   function timeDue() {
-    if (todo.timeDue === "12:00 AM") {
-      return "None"
+    if (todo.timeDue === '12:00 AM') {
+      return 'None'
     }
     return todo.timeDue
   }
 
   function dateDue() {
-    if (todo.dateDue === "1/1/01") {
-      return "None"
+    if (todo.dateDue === '1/1/01') {
+      return 'None'
     }
     return todo.dateDue
   }
 
+  // Formats tags
   function tags() {
     if (todo.tags != null) {
-      const tagArray = todo.tags.map(tag => {
+      const tagArray = todo.tags.map((tag) => {
         return (
           <span
             className="badge badge-pill badge-secondary tag"
@@ -32,7 +34,7 @@ const TodoItem = ({ todo, deleteapi, removeTag, updateApi, ...props }) => {
     }
   }
 
-  //Returns individual todo item
+  // Prepends todo.id with letter for CSS compatibility, also with hash and letter for selecting ID as target
   const idid = `#t${todo.id}`
   const tid = `t${todo.id}`
   const idmid = `#m${todo.id}`
@@ -41,10 +43,12 @@ const TodoItem = ({ todo, deleteapi, removeTag, updateApi, ...props }) => {
   return (
     <div className="list-group-item list-group-item-action">
       <div className="d-flex w-100 justify-content-between" id={todo.name}>
-        {" "}
-        {/* From API: todo.IsCompleted class added if complete */}
         <div className="form-check">
-          <input className="form-check-input position-static" type="checkbox" />
+          <input
+            className="form-check-input position-static"
+            type="checkbox"
+            checked={todo.isComplete}
+          />
         </div>
         <h5 className="mb-1">
           <button
@@ -57,9 +61,8 @@ const TodoItem = ({ todo, deleteapi, removeTag, updateApi, ...props }) => {
           >
             {todo.name}
           </button>
-        </h5>{" "}
-        {/* From API: todo.Name */}
-        <small /> {/* From API: DateTime.Date - todo.Created.Date */}
+        </h5>{' '}
+        <small />
         <div
           className="btn-toolbar ml-auto"
           role="toolbar"
@@ -106,9 +109,9 @@ const TodoItem = ({ todo, deleteapi, removeTag, updateApi, ...props }) => {
               aria-label="Close"
               onClick={() => {
                 deleteapi(
-                  "https://localhost:5001/api/todo/",
+                  'https://localhost:5001/api/todo/',
                   `${todo.id}`,
-                  "todos"
+                  'todos'
                 )
               }}
             >
@@ -123,17 +126,13 @@ const TodoItem = ({ todo, deleteapi, removeTag, updateApi, ...props }) => {
         data-parent="#todo"
         aria-labelledby={todo.name}
       >
-        <p className="mb-1">
-          {/* From API: todo.Detail */}
-          {todo.detail}
-        </p>
+        <p className="mb-1">{todo.detail}</p>
         <p>{tags()}</p>
         <small>
           {`Time Due: ${timeDue()}`}
           <br />
           {`Date Due: ${dateDue()}`}
         </small>
-        {/* From API: todo.Due */}
       </div>
     </div>
   )
