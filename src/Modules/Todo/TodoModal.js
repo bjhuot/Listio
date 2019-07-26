@@ -19,8 +19,8 @@ const TodoModal = (props) => {
     'Nov',
     'Dec',
   ]
-  const monthArray = months.map((month) => {
-    return <option>{month}</option>
+  const monthArray = months.map((month, index) => {
+    return <option key={index}>{month}</option>
   })
   const dates = [
     '1',
@@ -56,8 +56,8 @@ const TodoModal = (props) => {
     '31',
   ]
 
-  const dateArray = dates.map((date) => {
-    return <option>{date}</option>
+  const dateArray = dates.map((date, index) => {
+    return <option key={index}>{date}</option>
   })
 
   const years = []
@@ -70,13 +70,13 @@ const TodoModal = (props) => {
     return years
   }
 
-  const yearArray = yearSet().map((year) => {
-    return <option>{year}</option>
+  const yearArray = yearSet().map((year, index) => {
+    return <option key={index}>{year}</option>
   })
 
   const hours = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
-  const hourArray = hours.map((hour) => {
-    return <option>{hour}</option>
+  const hourArray = hours.map((hour, index) => {
+    return <option key={index}>{hour}</option>
   })
   const minutes = [
     ':00',
@@ -92,15 +92,16 @@ const TodoModal = (props) => {
     ':50',
     ':55',
   ]
-  const minuteArray = minutes.map((minute) => {
-    return <option>{minute}</option>
+  const minuteArray = minutes.map((minute, index) => {
+    return <option key={index}>{minute}</option>
   })
 
-  const tagArray = props.tags.map((tag) => {
+  const tagArray = props.tags.map((tag, index) => {
     return (
       <span
         className="badge badge-pill badge-secondary tag"
         onClick={props.removeTag}
+        key={index}
       >
         {tag}
       </span>
@@ -120,7 +121,7 @@ const TodoModal = (props) => {
       <div
         id="todoModal"
         className="modal"
-        tabindex="-1"
+        tabIndex="-1"
         role="dialog"
         aria-hidden="true"
       >
@@ -132,7 +133,7 @@ const TodoModal = (props) => {
                     //////////////// */}
               <form>
                 <div className="form-group">
-                  <label for="nameInputModal">To-do Item</label>
+                  <label htmlFor="nameInputModal">To-do Item</label>
                   <input
                     type="text"
                     className="form-control"
@@ -142,7 +143,7 @@ const TodoModal = (props) => {
                   />
                 </div>
                 <div className="form-group">
-                  <label for="detailInputModal">More Details</label>
+                  <label htmlFor="detailInputModal">More Details</label>
                   <input
                     type="text"
                     className="form-control"
@@ -152,7 +153,7 @@ const TodoModal = (props) => {
                   />
                 </div>
                 <div className="form-group">
-                  <label for="tagInputModal">Add some tags</label>
+                  <label htmlFor="tagInputModal">Add some tags</label>
                   <input
                     type="text"
                     className="form-control"
@@ -163,12 +164,14 @@ const TodoModal = (props) => {
                   />
                   <div className="form-row">{tagArray}</div>
                 </div>
-                <label for="datetimeInputModal">Set a due date and time</label>
+                <label htmlFor="datetimeInputModal">
+                  Set a due date and time
+                </label>
                 <div className="form-row" id="datetimeInputModal">
                   {/* DATE */}
                   <div className="form-group col-auto">
                     <select
-                      class="form-control form-control-sm date"
+                      className="form-control form-control-sm date"
                       id="month"
                       onChange={(e) => {
                         props.setDateTimeDue(e)
@@ -180,7 +183,7 @@ const TodoModal = (props) => {
                   </div>
                   <div className="form-group col-auto">
                     <select
-                      class="form-control form-control-sm date"
+                      className="form-control form-control-sm date"
                       id="day"
                       onChange={(e) => {
                         props.setDateTimeDue(e)
@@ -192,7 +195,7 @@ const TodoModal = (props) => {
                   </div>
                   <div className="form-group col-auto">
                     <select
-                      class="form-control form-control-sm date"
+                      className="form-control form-control-sm date"
                       id="year"
                       onChange={(e) => {
                         props.setDateTimeDue(e)
@@ -205,7 +208,7 @@ const TodoModal = (props) => {
                   {/* TIME */}
                   <div className="form-group col-auto ml-auto">
                     <select
-                      class="form-control form-control-sm time"
+                      className="form-control form-control-sm time"
                       id="hour"
                       onChange={(e) => {
                         props.setDateTimeDue(e)
@@ -217,7 +220,7 @@ const TodoModal = (props) => {
                   </div>
                   <div className="form-group col-auto">
                     <select
-                      class="form-control form-control-sm time"
+                      className="form-control form-control-sm time"
                       id="minute"
                       onChange={(e) => {
                         props.setDateTimeDue(e)
@@ -229,7 +232,7 @@ const TodoModal = (props) => {
                   </div>
                   <div className="form-group col-auto">
                     <select
-                      class="form-control form-control-sm time"
+                      className="form-control form-control-sm time"
                       id="ampm"
                       onChange={(e) => {
                         props.setDateTimeDue(e)
@@ -255,21 +258,12 @@ const TodoModal = (props) => {
               <button
                 type="button"
                 className="btn btn-primary"
-                // onClick={() => {
-                //   props.addapi(
-                //     "https://localhost:5001/api/todo/",
-                //     props.todoData,
-                //     "todos"
-                //   )
-                // }}
                 onClick={() => {
-                  props.setDateTime()
-                  console.log(props.todoData.timeDue)
-                  const tD = JSON.stringify(props.todoData.timeDue)
-                  console.log(tD)
-                  console.log(typeof tD)
-                  console.log(props.timeDueInput)
-                  console.log(props.todoData.name)
+                  props.addapi(
+                    'https://localhost:5001/api/todo/',
+                    props.todoData,
+                    'todos'
+                  )
                 }}
               >
                 Add Item

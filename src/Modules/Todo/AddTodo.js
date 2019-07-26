@@ -1,10 +1,10 @@
 import React from 'react'
 import TodoModal from './TodoModal'
 
-//////////////////////////////
-// DATA OBJECT TO STRINGIFY //
-//////////////////////////////
 const AddTodo = (props) => {
+  //////////////////////////////
+  // DATA OBJECT TO STRINGIFY //
+  //////////////////////////////
   let todoData = {
     name: props.nameInput,
     detail: props.detailInput,
