@@ -120,32 +120,24 @@ class App extends Component {
     })
   }
 
-  sleep = (milliseconds) => {
-    return new Promise((resolve) => setTimeout(resolve, milliseconds))
-  }
-
   addApi = (url, data, category) => {
     this.setDateTime() //TODO: see why date/time is not being included in data
 
-    this.sleep(1000).then(() => {
-      fetch(url, {
-        method: 'POST',
-        headers: new Headers({
-          'Content-type': 'application/json',
-        }),
-        body: JSON.stringify(data),
-      })
-        .then((response) => {
-          if (response.status === 201) {
-            this.getApi(url, category)
-          }
-        })
-        .catch((err) => console.error(err))
-
-      this.sleep(1000).then(() => {
-        this.resetState()
-      })
+    fetch(url, {
+      method: 'POST',
+      headers: new Headers({
+        'Content-type': 'application/json',
+      }),
+      body: JSON.stringify(data),
     })
+      .then((response) => {
+        if (response.status === 201) {
+          this.getApi(url, category)
+        }
+      })
+      .catch((err) => console.error(err))
+
+    this.resetState()
   }
 
   updateApi = (url, id, data, category) => {
@@ -175,6 +167,7 @@ class App extends Component {
             <Nav />
           </div>
         </div>
+
         <Body
           updateApi={this.updateApi}
           setDateTime={this.setDateTime}

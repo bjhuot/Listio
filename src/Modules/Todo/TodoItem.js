@@ -20,11 +20,12 @@ const TodoItem = ({ todo, deleteapi, removeTag, updateApi, ...props }) => {
   // Formats tags
   function tags() {
     if (todo.tags != null) {
-      const tagArray = todo.tags.map((tag) => {
+      const tagArray = todo.tags.map((tag, index) => {
         return (
           <span
             className="badge badge-pill badge-secondary tag"
             onClick={removeTag}
+            key={index}
           >
             {tag}
           </span>
@@ -47,7 +48,7 @@ const TodoItem = ({ todo, deleteapi, removeTag, updateApi, ...props }) => {
           <input
             className="form-check-input position-static"
             type="checkbox"
-            checked={todo.isComplete}
+            defaultChecked={todo.isComplete} //TODO: Make a onClick function to visually change todo item; create a "delete all done" button
           />
         </div>
         <h5 className="mb-1">
@@ -61,8 +62,7 @@ const TodoItem = ({ todo, deleteapi, removeTag, updateApi, ...props }) => {
           >
             {todo.name}
           </button>
-        </h5>{' '}
-        <small />
+        </h5>
         <div
           className="btn-toolbar ml-auto"
           role="toolbar"
@@ -128,11 +128,18 @@ const TodoItem = ({ todo, deleteapi, removeTag, updateApi, ...props }) => {
       >
         <p className="mb-1">{todo.detail}</p>
         <p>{tags()}</p>
-        <small>
-          {`Time Due: ${timeDue()}`}
-          <br />
-          {`Date Due: ${dateDue()}`}
-        </small>
+        <div className="d-flex justify-content-between">
+          <small>
+            {`Time Due: ${timeDue()}`}
+            <br />
+            {`Date Due: ${dateDue()}`}
+          </small>
+          <small>
+            Date Created: {todo.dateCreated}
+            <br />
+            Time Created: {todo.timeCreated}
+          </small>
+        </div>
       </div>
     </div>
   )
