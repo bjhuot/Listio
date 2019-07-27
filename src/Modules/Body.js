@@ -68,36 +68,37 @@ const Body = (props) => {
       <Route
         path="/NoteItems"
         render={(routeProps) => (
-          <div className="row">
-            <div className="card-deck">
-              <AddNote
-                addapi={props.addapi}
-                addtag={props.addtag}
-                removeTag={props.removeTag}
-                nc={props.nc}
-                nameInput={props.nameInput}
-                bc={props.bc}
-                bodyInput={props.bodyInput}
-                tc={props.tc}
-                tagsInput={props.tagsInput}
-                tags={props.tags}
-              />
-              <NoteItems
-                component={NoteItems}
-                notes={props.notes}
-                deleteapi={props.deleteapi}
-                addapi={props.addapi}
-                updateApi={props.updateApi}
-                addtag={props.addtag}
-                removeTag={props.removeTag}
-                nc={props.nc}
-                nameInput={props.nameInput}
-                bc={props.bc}
-                bodyInput={props.bodyInput}
-                tc={props.tc}
-                tagsInput={props.tagsInput}
-                tags={props.tags}
-              />
+          <div className="container-fluid">
+            <div className="row">
+              <div className="card-deck flex-wrap-reverse flex-row-reverse justify-content-end">
+                <NoteItems
+                  component={NoteItems}
+                  notes={props.notes}
+                  deleteapi={props.deleteapi}
+                  addapi={props.addapi}
+                  updateApi={props.updateApi}
+                  addtag={props.addtag}
+                  removeTag={props.removeTag}
+                  nc={props.nc}
+                  nameInput={props.nameInput}
+                  bc={props.bc}
+                  bodyInput={props.bodyInput}
+                  tc={props.tc}
+                  tagsInput={props.tagsInput}
+                />
+                <AddNote
+                  addapi={props.addapi}
+                  addtag={props.addtag}
+                  removeTag={props.removeTag}
+                  nc={props.nc}
+                  nameInput={props.nameInput}
+                  bc={props.bc}
+                  bodyInput={props.bodyInput}
+                  tc={props.tc}
+                  tagsInput={props.tagsInput}
+                  tags={props.tags}
+                />
+              </div>
             </div>
           </div>
         )}

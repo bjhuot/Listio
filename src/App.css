@@ -4,11 +4,12 @@
 }
 
 .card-text {
-  max-height: 300px;
+  max-height: 225px;
 }
 
 textarea {
   width: 100%;
+  height: 135px;
 }
 
 .list-group-item,
@@ -21,14 +22,19 @@ textarea {
   margin-top: 10px;
 }
 
+#tagsInputNote {
+  margin-top: 5px;
+}
+
 #note-row {
   width: 100%;
 }
 
-#note-add-buttons {
-  margin-top: 5px;
+#addnote {
+  height: 400px;
+  width: 320px;
 }
 
-/* #addnote {
-  width: 100%;
-} */
+.noteCard {
+  height: 400px;
+}
