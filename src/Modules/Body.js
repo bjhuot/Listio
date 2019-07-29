@@ -71,6 +71,7 @@ const Body = (props) => {
           <div className="container-fluid">
             <div className="row">
               <div className="card-deck flex-wrap-reverse flex-row-reverse justify-content-end">
+                {/* TODO: FIX ALIGNMENT ISSUE TO KEEP ADD NOTE ON FAR LEFT AT ALL TIMES */}
                 <NoteItems
                   component={NoteItems}
                   notes={props.notes}

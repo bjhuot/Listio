@@ -18,9 +18,8 @@ const AddNote = (props) => {
       </span>
     )
   })
-  //TODO: Why isn't card-deck making this equal height??
   return (
-    <div className="col-4">
+    <div className="col-4" id="addnotecol">
       <div className="card" id="addnote">
         <h5 className="card-header">Add a new note</h5>
         <div className="card-body overflow-auto">
