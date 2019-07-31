@@ -102,6 +102,10 @@ namespace Listio.Controllers
                 {
                     todoid.Tags = todo.Tags;
                 }
+                if (todo.IsComplete != null)
+                {
+                    todoid.IsComplete = todo.IsComplete;
+                }
                 if (todo.DateDue != null)
                 {
                     todoid.DateDue = todo.DateDue;

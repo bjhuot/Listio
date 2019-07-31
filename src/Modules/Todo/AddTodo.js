@@ -13,8 +13,6 @@ const AddTodo = (props) => {
     timeDue: props.timeDueInput,
   }
 
-  //TODO: Ensure newest creations go to top of list (fix on server?)
-
   return (
     <div className="list-group-item list-group-item-action">
       <div className="d-flex w-100 justify-content-between">

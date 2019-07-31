@@ -16,7 +16,7 @@ const NoteItem = ({ note, ...props }) => {
   }
 
   return (
-    <div className="col-4">
+    <div className={`col-4`}>
       <div className="card noteCard">
         <div className="card-body overflow-auto">
           <h5 className="card-title">{note.name}</h5>

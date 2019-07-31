@@ -70,8 +70,19 @@ const Body = (props) => {
         render={(routeProps) => (
           <div className="container-fluid">
             <div className="row">
-              <div className="card-deck flex-wrap-reverse flex-row-reverse justify-content-end">
-                {/* TODO: FIX ALIGNMENT ISSUE TO KEEP ADD NOTE ON FAR LEFT AT ALL TIMES */}
+              <div className="card-deck">
+                <AddNote
+                  addapi={props.addapi}
+                  addtag={props.addtag}
+                  removeTag={props.removeTag}
+                  nc={props.nc}
+                  nameInput={props.nameInput}
+                  bc={props.bc}
+                  bodyInput={props.bodyInput}
+                  tc={props.tc}
+                  tagsInput={props.tagsInput}
+                  tags={props.tags}
+                />
                 <NoteItems
                   component={NoteItems}
                   notes={props.notes}
@@ -86,18 +97,6 @@ const Body = (props) => {
                   bodyInput={props.bodyInput}
                   tc={props.tc}
                   tagsInput={props.tagsInput}
-                />
-                <AddNote
-                  addapi={props.addapi}
-                  addtag={props.addtag}
-                  removeTag={props.removeTag}
-                  nc={props.nc}
-                  nameInput={props.nameInput}
-                  bc={props.bc}
-                  bodyInput={props.bodyInput}
-                  tc={props.tc}
-                  tagsInput={props.tagsInput}
-                  tags={props.tags}
                 />
               </div>
             </div>
