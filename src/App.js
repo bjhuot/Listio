@@ -159,10 +159,10 @@ class App extends Component {
     this.resetState()
   }
 
-  updateAllDone = (url, id, category) => {
-    //let data =
-    this.updateApi(url, id, data, category)
-    // if()
+  // updateAllDone = (url, id, category) => {
+  //   //let data =
+  //   this.updateApi(url, id, data, category)
+  //   // if()
   }
 
   render() {
