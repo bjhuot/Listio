@@ -163,7 +163,7 @@ class App extends Component {
   //   //let data =
   //   this.updateApi(url, id, data, category)
   //   // if()
-  }
+  //}
 
   render() {
     return (
