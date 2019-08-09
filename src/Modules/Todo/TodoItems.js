@@ -24,6 +24,7 @@ const TodoItems = (props) => {
         timeDueInput={props.timeDueInput}
         setDateTime={props.setDateTime}
         setDateTimeDue={props.setDateTimeDue}
+        disabled={props.disabled}
       />
     )
   })

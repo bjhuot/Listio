@@ -109,8 +109,8 @@ const TodoEditModal = (props) => {
     return <option key={index}>{minute}</option>
   })
 
-  let tagArray = [...props.todo.tags, ...props.tagsInput]
-  tagArray = props.todo.tags.map((tag, index) => {
+  let tagArray = [...props.todo.tags, ...props.tags]
+  tagArray = tagArray.map((tag, index) => {
     return (
       <span
         className="badge badge-pill badge-secondary tag"
@@ -124,14 +124,6 @@ const TodoEditModal = (props) => {
 
   return (
     <div>
-      <button
-        type="button"
-        className="btn btn-secondary"
-        data-toggle="modal"
-        data-target={props.idmid}
-      >
-        &#9998;
-      </button>
       <div
         id={props.mid}
         className="modal"

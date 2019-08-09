@@ -27,6 +27,7 @@ class App extends Component {
       minute: '',
       ampm: '',
       bodyInput: '',
+      disabled: 'disabled',
     }
   }
 
@@ -158,12 +159,18 @@ class App extends Component {
     this.resetState()
   }
 
+  updateAllDone = (url, id, category) => {
+    //let data =
+    this.updateApi(url, id, data, category)
+    // if()
+  }
+
   render() {
     return (
       <div className="container">
         <div className="row">
           <div className="col">
-            <Header />
+            {/* <Header /> */}
             <Nav />
           </div>
         </div>
@@ -191,6 +198,7 @@ class App extends Component {
           dateDueInput={this.state.dateDueInput}
           tdc={this.timeDueChange}
           timeDueInput={this.state.timeDueInput}
+          disabled={this.state.disabled}
         />
       </div>
     )

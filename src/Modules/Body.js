@@ -59,6 +59,7 @@ const Body = (props) => {
                   setDateTime={props.setDateTime}
                   setDateTimeDue={props.setDateTimeDue}
                   updateApi={props.updateApi}
+                  disabled={props.disabled}
                 />
               </div>
             </div>

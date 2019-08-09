@@ -47,3 +47,5 @@ Search
 Error handling (frontend and backend)
 
 Input verification
+
+ON MODAL CLOSE: reset states
