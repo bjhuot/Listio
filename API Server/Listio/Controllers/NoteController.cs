@@ -89,11 +89,11 @@ namespace Listio.Controllers
                 {
                     return BadRequest();
                 }
-                if (note.Name != "")
+                if (note.Name != null)
                 {
                     noteid.Name = note.Name;
                 }
-                if (note.Body != "")
+                if (note.Body != null)
                 {
                     noteid.Body = note.Body;
                 }

@@ -159,11 +159,16 @@ class App extends Component {
     this.resetState()
   }
 
-  // updateAllDone = (url, id, category) => {
-  //   //let data =
-  //   this.updateApi(url, id, data, category)
-  //   // if()
-  //}
+  deleteFinished = () => {
+    //TODO: REFACTOR TO BULK REQUEST
+    const finishedArray = Array.from(document.querySelectorAll('[checked]'))
+    const finishedIds = finishedArray.map((node) => {
+      return node.id
+    })
+    finishedIds.forEach((id) => {
+      this.deleteApi('https://localhost:5001/api/todo/', id, 'todos')
+    })
+  }
 
   render() {
     return (
@@ -199,6 +204,7 @@ class App extends Component {
           tdc={this.timeDueChange}
           timeDueInput={this.state.timeDueInput}
           disabled={this.state.disabled}
+          deleteFinished={this.deleteFinished}
         />
       </div>
     )

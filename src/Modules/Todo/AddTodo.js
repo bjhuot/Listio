@@ -99,8 +99,12 @@ const AddTodo = (props) => {
                     >
                       Cancel
                     </button>
-                    <button type="button" class="btn btn-primary">
-                      {/* TODO: GET THIS WORKING */}
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      data-dismiss="modal"
+                      onClick={() => props.deleteFinished()}
+                    >
                       Delete All
                     </button>
                   </div>

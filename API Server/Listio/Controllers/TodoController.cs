@@ -90,11 +90,11 @@ namespace Listio.Controllers
                 {
                     return BadRequest();
                 }
-                if (todo.Name != "")
+                if (todo.Name != null)
                 {
                     todoid.Name = todo.Name;
                 }
-                if (todo.Detail != "")
+                if (todo.Detail != null)
                 {
                     todoid.Detail = todo.Detail;
                 }
@@ -106,11 +106,11 @@ namespace Listio.Controllers
                 {
                     todoid.IsComplete = todo.IsComplete;
                 }
-                if (todo.DateDue != "")
+                if (todo.DateDue != null)
                 {
                     todoid.DateDue = todo.DateDue;
                 }
-                if (todo.TimeDue != "")
+                if (todo.TimeDue != null)
                 {
                     todoid.TimeDue = todo.TimeDue;
                 }

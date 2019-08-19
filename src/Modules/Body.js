@@ -33,6 +33,7 @@ const Body = (props) => {
                 dateDueInput={props.dateDueInput}
                 tdc={props.tdc}
                 timeDueInput={props.timeDueInput}
+                deleteFinished={props.deleteFinished}
               />
               <div
                 className="accordion list-group flex-column-reverse"

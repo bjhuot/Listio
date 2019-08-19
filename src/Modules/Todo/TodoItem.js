@@ -48,6 +48,7 @@ const TodoItem = ({ todo, deleteapi, removeTag, updateApi, ...props }) => {
           <input
             className="form-check-input position-static"
             type="checkbox"
+            id={todo.id}
             defaultChecked={todo.isComplete} //TODO: create a "delete all done" button
             onClick={() => {
               updateApi(
