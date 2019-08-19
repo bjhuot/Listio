@@ -40,7 +40,7 @@ const TodoItem = ({ todo, deleteapi, removeTag, updateApi, ...props }) => {
   const tid = `t${todo.id}`
   const idmid = `#m${todo.id}`
   const mid = `m${todo.id}`
-
+  //!! TODO: KEEP TESTING DISABLED FOR LINK STYLING
   return (
     <div className="list-group-item list-group-item-action">
       <div className="d-flex w-100 justify-content-between" id={todo.name}>
@@ -48,7 +48,18 @@ const TodoItem = ({ todo, deleteapi, removeTag, updateApi, ...props }) => {
           <input
             className="form-check-input position-static"
             type="checkbox"
-            defaultChecked={todo.isComplete} //TODO: Make a onClick function to visually change todo item; create a "delete all done" button
+            id={todo.id}
+            defaultChecked={todo.isComplete} //TODO: create a "delete all done" button
+            onClick={() => {
+              updateApi(
+                'https://localhost:5001/api/todo/',
+                todo.id,
+                { isComplete: `${!todo.isComplete}` },
+                'todos'
+              )
+              //TODO: THIS VVVVVV
+              //set onClick to add disabled to top div
+            }}
           />
         </div>
         <h5 className="mb-1">
@@ -72,27 +83,14 @@ const TodoItem = ({ todo, deleteapi, removeTag, updateApi, ...props }) => {
             <button type="button" className="btn btn-secondary">
               &uarr;
             </button>
-            <TodoEditModal
-              todo={todo}
-              mid={mid}
-              idmid={idmid}
-              updateApi={updateApi}
-              removeTag={props.removeTag}
-              nc={props.nc}
-              nameInput={props.nameInput}
-              dc={props.dc}
-              detailInput={props.detailInput}
-              tc={props.tc}
-              tagsInput={props.tagsInput}
-              tags={props.tags}
-              addtag={props.addtag}
-              ddc={props.ddc}
-              dateDueInput={props.dateDueInput}
-              tdc={props.tdc}
-              timeDueInput={props.timeDueInput}
-              setDateTime={props.setDateTime}
-              setDateTimeDue={props.setDateTimeDue}
-            />
+            <button
+              type="button"
+              className="btn btn-secondary"
+              data-toggle="modal"
+              data-target={idmid}
+            >
+              &#9998;
+            </button>
             <button type="button" className="btn btn-secondary">
               &darr;
             </button>
@@ -141,6 +139,27 @@ const TodoItem = ({ todo, deleteapi, removeTag, updateApi, ...props }) => {
           </small>
         </div>
       </div>
+      <TodoEditModal
+        todo={todo}
+        mid={mid}
+        idmid={idmid}
+        updateApi={updateApi}
+        removeTag={props.removeTag}
+        nc={props.nc}
+        nameInput={props.nameInput}
+        dc={props.dc}
+        detailInput={props.detailInput}
+        tc={props.tc}
+        tagsInput={props.tagsInput}
+        tags={props.tags}
+        addtag={props.addtag}
+        ddc={props.ddc}
+        dateDueInput={props.dateDueInput}
+        tdc={props.tdc}
+        timeDueInput={props.timeDueInput}
+        setDateTime={props.setDateTime}
+        setDateTimeDue={props.setDateTimeDue}
+      />
     </div>
   )
 }

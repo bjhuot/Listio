@@ -33,6 +33,7 @@ const Body = (props) => {
                 dateDueInput={props.dateDueInput}
                 tdc={props.tdc}
                 timeDueInput={props.timeDueInput}
+                deleteFinished={props.deleteFinished}
               />
               <div
                 className="accordion list-group flex-column-reverse"
@@ -59,6 +60,7 @@ const Body = (props) => {
                   setDateTime={props.setDateTime}
                   setDateTimeDue={props.setDateTimeDue}
                   updateApi={props.updateApi}
+                  disabled={props.disabled}
                 />
               </div>
             </div>
@@ -68,36 +70,37 @@ const Body = (props) => {
       <Route
         path="/NoteItems"
         render={(routeProps) => (
-          <div className="row">
-            <div className="card-deck">
-              <AddNote
-                addapi={props.addapi}
-                addtag={props.addtag}
-                removeTag={props.removeTag}
-                nc={props.nc}
-                nameInput={props.nameInput}
-                bc={props.bc}
-                bodyInput={props.bodyInput}
-                tc={props.tc}
-                tagsInput={props.tagsInput}
-                tags={props.tags}
-              />
-              <NoteItems
-                component={NoteItems}
-                notes={props.notes}
-                deleteapi={props.deleteapi}
-                addapi={props.addapi}
-                updateApi={props.updateApi}
-                addtag={props.addtag}
-                removeTag={props.removeTag}
-                nc={props.nc}
-                nameInput={props.nameInput}
-                bc={props.bc}
-                bodyInput={props.bodyInput}
-                tc={props.tc}
-                tagsInput={props.tagsInput}
-                tags={props.tags}
-              />
+          <div className="container-fluid">
+            <div className="row">
+              <div className="card-deck">
+                <AddNote
+                  addapi={props.addapi}
+                  addtag={props.addtag}
+                  removeTag={props.removeTag}
+                  nc={props.nc}
+                  nameInput={props.nameInput}
+                  bc={props.bc}
+                  bodyInput={props.bodyInput}
+                  tc={props.tc}
+                  tagsInput={props.tagsInput}
+                  tags={props.tags}
+                />
+                <NoteItems
+                  component={NoteItems}
+                  notes={props.notes}
+                  deleteapi={props.deleteapi}
+                  addapi={props.addapi}
+                  updateApi={props.updateApi}
+                  addtag={props.addtag}
+                  removeTag={props.removeTag}
+                  nc={props.nc}
+                  nameInput={props.nameInput}
+                  bc={props.bc}
+                  bodyInput={props.bodyInput}
+                  tc={props.tc}
+                  tagsInput={props.tagsInput}
+                />
+              </div>
             </div>
           </div>
         )}

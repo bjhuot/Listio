@@ -110,14 +110,6 @@ const TodoModal = (props) => {
 
   return (
     <div>
-      <button
-        type="button"
-        className="btn btn-link"
-        data-toggle="modal"
-        data-target="#todoModal"
-      >
-        Add Details
-      </button>
       <div
         id="todoModal"
         className="modal"

@@ -27,6 +27,7 @@ class App extends Component {
       minute: '',
       ampm: '',
       bodyInput: '',
+      disabled: 'disabled',
     }
   }
 
@@ -158,12 +159,23 @@ class App extends Component {
     this.resetState()
   }
 
+  deleteFinished = () => {
+    //TODO: REFACTOR TO BULK REQUEST
+    const finishedArray = Array.from(document.querySelectorAll('[checked]'))
+    const finishedIds = finishedArray.map((node) => {
+      return node.id
+    })
+    finishedIds.forEach((id) => {
+      this.deleteApi('https://localhost:5001/api/todo/', id, 'todos')
+    })
+  }
+
   render() {
     return (
       <div className="container">
         <div className="row">
           <div className="col">
-            <Header />
+            {/* <Header /> */}
             <Nav />
           </div>
         </div>
@@ -191,6 +203,8 @@ class App extends Component {
           dateDueInput={this.state.dateDueInput}
           tdc={this.timeDueChange}
           timeDueInput={this.state.timeDueInput}
+          disabled={this.state.disabled}
+          deleteFinished={this.deleteFinished}
         />
       </div>
     )

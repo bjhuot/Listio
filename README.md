@@ -30,7 +30,6 @@ Due time
 
 Notes:
 
-- Layout is broken for 0 and 1 notes remaining
 - updateApi function not implemented
 
 Auto-complete for existing tags
@@ -48,3 +47,5 @@ Search
 Error handling (frontend and backend)
 
 Input verification
+
+ON MODAL CLOSE: reset states

@@ -16,12 +16,14 @@ const NoteItem = ({ note, ...props }) => {
   }
 
   return (
-    <div className="col-4">
-      <div className="card">
-        <div className="card-body">
+    <div className={`col-4`}>
+      <div className="card noteCard">
+        <div className="card-body overflow-auto">
           <h5 className="card-title">{note.name}</h5>
-          <p className="card-text overflow-auto">{note.body}</p>
+          <p className="card-text">{note.body}</p>
           <p>{tags()}</p>
+        </div>
+        <div className="card-footer">
           <div
             className="btn-toolbar ml-auto"
             role="toolbar"
