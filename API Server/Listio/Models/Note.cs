@@ -1,9 +1,11 @@
 ﻿using System;
+using LiteDB;
 
 namespace Listio.Models
 {
     public class Note
     {
+        [BsonId]
         public string Id { get; set; } = DateTime.Now.Ticks.ToString();
         public string Name { get; set; }
         public string Body { get; set; } = null;

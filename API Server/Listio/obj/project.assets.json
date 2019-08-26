@@ -7226,6 +7226,7 @@
       "path": "runtime.native.system.data.sqlclient.sni/4.4.0",
       "files": [
         ".nupkg.metadata",
+        ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
         "runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
@@ -7320,6 +7321,7 @@
       "path": "runtime.osx.10.10-x64.runtime.native.system.security.cryptography.apple/4.3.0",
       "files": [
         ".nupkg.metadata",
+        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "runtime.osx.10.10-x64.runtime.native.system.security.cryptography.apple.4.3.0.nupkg.sha512",
@@ -9458,6 +9460,7 @@
       "path": "system.reflection.emit/4.3.0",
       "files": [
         ".nupkg.metadata",
+        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -9493,6 +9496,7 @@
       "path": "system.reflection.emit.ilgeneration/4.3.0",
       "files": [
         ".nupkg.metadata",
+        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -11826,7 +11830,6 @@
     ".NETCoreApp,Version=v2.1": [
       "LiteDB >= 4.1.4",
       "Microsoft.AspNetCore.App >= 2.1.1",
-      "Microsoft.AspNetCore.Cors >= 2.1.1",
       "Microsoft.AspNetCore.Razor.Design >= 2.1.2",
       "Microsoft.NETCore.App >= 2.1.0"
     ]
@@ -11838,17 +11841,17 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/brianhuot/coding/listio/API Server/Listio/Listio.csproj",
+      "projectUniqueName": "/Users/brianhuot/Projects/Listio/Listio/Listio.csproj",
       "projectName": "Listio",
-      "projectPath": "/Users/brianhuot/coding/listio/API Server/Listio/Listio.csproj",
+      "projectPath": "/Users/brianhuot/Projects/Listio/Listio/Listio.csproj",
       "packagesPath": "/Users/brianhuot/.nuget/packages/",
-      "outputPath": "/Users/brianhuot/coding/listio/API Server/Listio/obj/",
+      "outputPath": "/Users/brianhuot/Projects/Listio/Listio/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/Users/brianhuot/.nuget/NuGet/NuGet.Config"
+        "/Users/brianhuot/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.1"
@@ -11879,10 +11882,6 @@
             "target": "Package",
             "version": "[2.1.1, )",
             "autoReferenced": true
-          },
-          "Microsoft.AspNetCore.Cors": {
-            "target": "Package",
-            "version": "[2.1.1, )"
           },
           "Microsoft.AspNetCore.Razor.Design": {
             "suppressParent": "All",
