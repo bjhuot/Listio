@@ -18,7 +18,7 @@ namespace Listio.Services
         {
             var ListioDb = new LiteDatabase(settings.ConnectionString);
             todo = ListioDb.GetCollection<Todo>("Todo");
-            //note = ListioDb.GetCollection<Note>("Note");
+            note = ListioDb.GetCollection<Note>("Note");
         }
     }
 }

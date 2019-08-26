@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Listio.Models;
 using Microsoft.Extensions.Configuration;
 using LiteDB;
+using Listio.Services;
 
 namespace Listio.Controllers
 {
@@ -14,122 +15,63 @@ namespace Listio.Controllers
     [ApiController]
     public class NoteController : ControllerBase
     {
-        private readonly IConfiguration _configuration; //Imports configuration to make connection string available; each HTTP method makes it's own call
-                                                        //to the database due to access conflicts with .NET Core and LiteDB requiring exclusivity.
+        private readonly NoteService _note;
 
-        public NoteController(IConfiguration configuration)
+        public NoteController(NoteService note)
         {
-            _configuration = configuration;
+            _note = note;
 
         }
 
-        // GET: api/note  //Displays entire list of note items.
+        // GET: api/note  //Returns entire list of Note items
         [HttpGet]
-        public ActionResult<IEnumerable<Note>> GetNoteItems()
-        {
-            string connectionString = _configuration.GetSection("ConnectionStrings").GetChildren().FirstOrDefault()?.Value;
-            using (var db = new LiteDatabase(connectionString))
-            {
-                var col = db.GetCollection<Note>("Note");
-                //
-                return col.FindAll().ToList();
-            }
-        }
+        public ActionResult<List<Note>> Get() =>
+            _note.Get();
 
-        // GET: api/Note/5  //Displays single note item.
         [HttpGet("{id}")]
-        public ActionResult<Note> GetNoteItem(string id)
+        public ActionResult<Note> Get(string id)
         {
-            string connectionString = _configuration.GetSection("ConnectionStrings").GetChildren().FirstOrDefault()?.Value;
-            using (var db = new LiteDatabase(connectionString))
+            var note = _note.Get(id);
+
+            if (note == null)
             {
-                var col = db.GetCollection<Note>("Note");
-                //
-
-                col.EnsureIndex(x => x.Id);
-                var noteid = col.FindOne(x => x.Id.ToString().Contains(id));
-
-                if (noteid == null)
-                {
-                    return NotFound();
-                }
-
-                return noteid;
+                return NotFound();
             }
+
+            return Ok(note);
         }
 
-        // POST: api/Note  //Adds single note item.
+        // POST: api/note  //Adds new Note item, auto-generating GUID and any blank fields.
         [HttpPost]
-        public ActionResult<Note> PostNoteItem(Note note)
+        public ActionResult<Note> Create(Note note)
         {
-            string connectionString = _configuration.GetSection("ConnectionStrings").GetChildren().FirstOrDefault()?.Value;
-            using (var db = new LiteDatabase(connectionString))
-            {
-                var col = db.GetCollection<Note>("Note");
-                //
+            _note.Create(note);
 
-                col.Insert(note);
-                return CreatedAtAction(nameof(GetNoteItem), new { id = note.Id }, note);
-            }
+            return Ok(note);
         }
 
-        // PUT: /api/Note/5  //Edits single note item, checking for blank fields.
+        // PUT: /api/note/5  //Edits single Note item, checking for blank fields in modified item.
         [HttpPut("{id}")]
-        public IActionResult PutNoteItem(string id, Note note)
+        public IActionResult Update(string id, Note noteIn)
         {
-            string connectionString = _configuration.GetSection("ConnectionStrings").GetChildren().FirstOrDefault()?.Value;
-            using (var db = new LiteDatabase(connectionString))
+            var note = _note.Update(id, noteIn);
+            if (note == null)
             {
-                var col = db.GetCollection<Note>("Note");
-                //
-                col.EnsureIndex(x => x.Id);
-                var noteid = col.FindOne(x => x.Id.ToString().Contains(id));
-
-                if (noteid == null)
-                {
-                    return BadRequest();
-                }
-                if (note.Name != null)
-                {
-                    noteid.Name = note.Name;
-                }
-                if (note.Body != null)
-                {
-                    noteid.Body = note.Body;
-                }
-                if (note.Tags != null)
-                {
-                    noteid.Tags = note.Tags;
-                }
-                noteid.DateCreated = noteid.DateCreated;
-                noteid.TimeCreated = noteid.TimeCreated;
-
-                col.Update(noteid);
-                return NoContent();
+                return NotFound();
             }
+            return Ok(note);
         }
 
-        // DELETE: /api/Note/5  //Deletes single note item.
+        // DELETE: /api/note/5  //Deletes single item.
         [HttpDelete("{id}")]
-        public IActionResult DeleteNoteItem(string id)
+        public IActionResult Delete(string id)
         {
-            string connectionString = _configuration.GetSection("ConnectionStrings").GetChildren().FirstOrDefault()?.Value;
-            using (var db = new LiteDatabase(connectionString))
+            if (_note.Get(id) == null)
             {
-                var col = db.GetCollection<Note>("Note");
-                //
-
-                col.EnsureIndex(x => x.Id);
-                var noteid = col.FindOne(x => x.Id.ToString().Contains(id));
-
-                if (noteid == null)
-                {
-                    return NotFound();
-                }
-
-                col.Delete(noteid.Id);
-                return NoContent();
+                return NotFound();
             }
+            _note.Delete(id);
+            return new OkResult();
         }
     }
 }

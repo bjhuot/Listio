@@ -11841,17 +11841,17 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/brianhuot/Projects/Listio/Listio/Listio.csproj",
+      "projectUniqueName": "/Users/brianhuot/coding/listio/API Server/Listio/Listio.csproj",
       "projectName": "Listio",
-      "projectPath": "/Users/brianhuot/Projects/Listio/Listio/Listio.csproj",
+      "projectPath": "/Users/brianhuot/coding/listio/API Server/Listio/Listio.csproj",
       "packagesPath": "/Users/brianhuot/.nuget/packages/",
-      "outputPath": "/Users/brianhuot/Projects/Listio/Listio/obj/",
+      "outputPath": "/Users/brianhuot/coding/listio/API Server/Listio/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/Users/brianhuot/.config/NuGet/NuGet.Config"
+        "/Users/brianhuot/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.1"
