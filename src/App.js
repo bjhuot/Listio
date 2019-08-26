@@ -96,11 +96,6 @@ class App extends Component {
   // API RELATED FUNCTIONS //
   ///////////////////////////
 
-  componentDidMount() {
-    this.getApi('https://localhost:5001/api/todo/', 'todos')
-    this.getApi('https://localhost:5001/api/note/', 'notes')
-  }
-
   getApi = (url, state) => {
     fetch(url)
       .then((res) => res.json())
@@ -115,7 +110,7 @@ class App extends Component {
     fetch(url + id, {
       method: 'delete',
     }).then((response) => {
-      if (response.status === 204) {
+      if (response.status === 200) {
         this.getApi(url, category)
       }
     })
@@ -132,7 +127,7 @@ class App extends Component {
       body: JSON.stringify(data),
     })
       .then((response) => {
-        if (response.status === 201) {
+        if (response.status === 200) {
           this.getApi(url, category)
         }
       })
@@ -150,7 +145,7 @@ class App extends Component {
       body: JSON.stringify(data),
     })
       .then((response) => {
-        if (response.status === 204) {
+        if (response.status === 200) {
           this.getApi(url, category)
         }
       })
@@ -205,6 +200,7 @@ class App extends Component {
           timeDueInput={this.state.timeDueInput}
           disabled={this.state.disabled}
           deleteFinished={this.deleteFinished}
+          getApi={this.getApi}
         />
       </div>
     )

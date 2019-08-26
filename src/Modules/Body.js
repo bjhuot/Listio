@@ -4,6 +4,8 @@ import TodoItems from './Todo/TodoItems'
 import NoteItems from './Note/NoteItems'
 import AddTodo from './Todo/AddTodo'
 import AddNote from './Note/AddNote'
+import TodoApiCall from './Todo/TodoApiCall'
+import NoteApiCall from './Note/NoteApiCall'
 
 const Body = (props) => {
   return (
@@ -16,6 +18,7 @@ const Body = (props) => {
         render={(routeProps) => (
           <div className="row">
             <div className="col ">
+              <TodoApiCall getApi={props.getApi} />
               <AddTodo
                 setDateTime={props.setDateTime}
                 setDateTimeDue={props.setDateTimeDue}
@@ -73,6 +76,7 @@ const Body = (props) => {
           <div className="container-fluid">
             <div className="row">
               <div className="card-deck">
+                <NoteApiCall getApi={props.getApi} />
                 <AddNote
                   addapi={props.addapi}
                   addtag={props.addtag}
@@ -99,6 +103,7 @@ const Body = (props) => {
                   bodyInput={props.bodyInput}
                   tc={props.tc}
                   tagsInput={props.tagsInput}
+                  getApi={props.getApi}
                 />
               </div>
             </div>

@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Microsoft.AspNetCore.Cors;
 using Listio.Models;
 using Listio.Services;
 
@@ -33,6 +34,8 @@ namespace Listio
 
             services.AddSingleton<DatabaseService>();
             services.AddSingleton<TodoService>();
+            services.AddSingleton<NoteService>();
+            services.AddCors();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
@@ -49,7 +52,11 @@ namespace Listio
                 app.UseHsts();
             }
 
-            app.UseCors();
+            app.UseCors(options => options
+                                    .AllowAnyOrigin()
+                                    .AllowAnyHeader()
+                                    .AllowCredentials()
+                                    .AllowAnyMethod());
             app.UseHttpsRedirection();
             app.UseMvc();
         }
