@@ -7,7 +7,7 @@ function Nav() {
     // NAVBAR //
     ////////////
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <Link className="navbar-brand" to="/">
+      <Link className="navbar-brand" to="#">
         list.IO
       </Link>
       <button
@@ -21,7 +21,6 @@ function Nav() {
       >
         <span className="navbar-toggler-icon" />
       </button>
-
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav mr-auto">
           <li className="nav-item">

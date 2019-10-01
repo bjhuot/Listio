@@ -4,8 +4,6 @@ import TodoItems from './Todo/TodoItems'
 import NoteItems from './Note/NoteItems'
 import AddTodo from './Todo/AddTodo'
 import AddNote from './Note/AddNote'
-import TodoApiCall from './Todo/TodoApiCall'
-import NoteApiCall from './Note/NoteApiCall'
 
 const Body = (props) => {
   return (
@@ -14,11 +12,11 @@ const Body = (props) => {
     //////////////////
     <Switch>
       <Route
-        path="/TodoItems"
+        exact
+        path={['/TodoItems', '/']}
         render={(routeProps) => (
           <div className="row">
             <div className="col ">
-              <TodoApiCall getApi={props.getApi} />
               <AddTodo
                 setDateTime={props.setDateTime}
                 setDateTimeDue={props.setDateTimeDue}
@@ -37,6 +35,9 @@ const Body = (props) => {
                 tdc={props.tdc}
                 timeDueInput={props.timeDueInput}
                 deleteFinished={props.deleteFinished}
+                getApi={props.getApi}
+                clearAllCheck={props.clearAllCheck}
+                target={props.target}
               />
               <div
                 className="accordion list-group flex-column-reverse"
@@ -76,7 +77,6 @@ const Body = (props) => {
           <div className="container-fluid">
             <div className="row">
               <div className="card-deck">
-                <NoteApiCall getApi={props.getApi} />
                 <AddNote
                   addapi={props.addapi}
                   addtag={props.addtag}
@@ -88,6 +88,7 @@ const Body = (props) => {
                   tc={props.tc}
                   tagsInput={props.tagsInput}
                   tags={props.tags}
+                  getApi={props.getApi}
                 />
                 <NoteItems
                   component={NoteItems}

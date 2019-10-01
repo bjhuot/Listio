@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import './App.css'
 import Body from './Modules/Body'
-import Header from './Modules/Header'
 import Nav from './Modules/Nav'
 
 class App extends Component {
@@ -28,6 +27,7 @@ class App extends Component {
       ampm: '',
       bodyInput: '',
       disabled: 'disabled',
+      target: '',
     }
   }
 
@@ -117,7 +117,7 @@ class App extends Component {
   }
 
   addApi = (url, data, category) => {
-    this.setDateTime() //TODO: see why date/time is not being included in data
+    //this.setDateTime() TODO: see why date/time is not being included in data
 
     fetch(url, {
       method: 'POST',
@@ -155,7 +155,6 @@ class App extends Component {
   }
 
   deleteFinished = () => {
-    //TODO: REFACTOR TO BULK REQUEST
     const finishedArray = Array.from(document.querySelectorAll('[checked]'))
     const finishedIds = finishedArray.map((node) => {
       return node.id
@@ -163,6 +162,16 @@ class App extends Component {
     finishedIds.forEach((id) => {
       this.deleteApi('https://localhost:5001/api/todo/', id, 'todos')
     })
+  }
+
+  clearAllCheck = () => {
+    const finishedArray = Array.from(document.querySelectorAll('[checked]'))
+    if (finishedArray.length === 0) {
+      // return <NoneSelectedModal />
+      this.setState({ target: '#noneSelectedModal' })
+    } else {
+      this.setState({ target: '#clearAllModal' })
+    }
   }
 
   render() {
@@ -201,6 +210,8 @@ class App extends Component {
           disabled={this.state.disabled}
           deleteFinished={this.deleteFinished}
           getApi={this.getApi}
+          clearAllCheck={this.clearAllCheck}
+          target={this.state.target}
         />
       </div>
     )

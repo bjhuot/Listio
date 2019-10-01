@@ -1,6 +1,5 @@
 import React from 'react'
 import TodoItem from './TodoItem'
-import TodoApiCall from './TodoApiCall'
 
 const TodoItems = (props) => {
   return props.todos.map(function(todo) {

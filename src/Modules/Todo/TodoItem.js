@@ -49,7 +49,7 @@ const TodoItem = ({ todo, deleteapi, removeTag, updateApi, ...props }) => {
             className="form-check-input position-static"
             type="checkbox"
             id={todo.id}
-            defaultChecked={todo.isComplete} //TODO: create a "delete all done" button
+            defaultChecked={todo.isComplete}
             onClick={() => {
               updateApi(
                 'https://localhost:5001/api/todo/',

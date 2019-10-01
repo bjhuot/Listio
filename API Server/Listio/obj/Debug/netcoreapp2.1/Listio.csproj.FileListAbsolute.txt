@@ -11,9 +11,6 @@
 /Users/brianhuot/Projects/Listio/Listio/obj/Debug/netcoreapp2.1/Listio.RazorTargetAssemblyInfo.cache
 /Users/brianhuot/Projects/Listio/Listio/obj/Debug/netcoreapp2.1/Listio.dll
 /Users/brianhuot/Projects/Listio/Listio/obj/Debug/netcoreapp2.1/Listio.pdb
-/Users/brianhuot/coding/listio/API Server/Listio/bin/Debug/netcoreapp2.1/Listio.deps.json
-/Users/brianhuot/coding/listio/API Server/Listio/bin/Debug/netcoreapp2.1/Listio.runtimeconfig.json
-/Users/brianhuot/coding/listio/API Server/Listio/bin/Debug/netcoreapp2.1/Listio.runtimeconfig.dev.json
 /Users/brianhuot/coding/listio/API Server/Listio/bin/Debug/netcoreapp2.1/Listio.dll
 /Users/brianhuot/coding/listio/API Server/Listio/bin/Debug/netcoreapp2.1/Listio.pdb
 /Users/brianhuot/coding/listio/API Server/Listio/obj/Debug/netcoreapp2.1/Listio.csprojAssemblyReference.cache

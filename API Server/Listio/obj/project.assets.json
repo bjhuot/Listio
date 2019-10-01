@@ -11842,11 +11842,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/brianhuot/coding/listio/API Server/Listio/Listio.csproj",
+      "projectUniqueName": "/System/Volumes/Data/Users/brianhuot/coding/listio/API Server/Listio/Listio.csproj",
       "projectName": "Listio",
-      "projectPath": "/Users/brianhuot/coding/listio/API Server/Listio/Listio.csproj",
+      "projectPath": "/System/Volumes/Data/Users/brianhuot/coding/listio/API Server/Listio/Listio.csproj",
       "packagesPath": "/Users/brianhuot/.nuget/packages/",
-      "outputPath": "/Users/brianhuot/coding/listio/API Server/Listio/obj/",
+      "outputPath": "/System/Volumes/Data/Users/brianhuot/coding/listio/API Server/Listio/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
