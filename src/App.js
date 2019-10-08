@@ -41,15 +41,40 @@ class App extends Component {
       dateDueInput: '',
       timeDueInput: '',
       bodyInput: '',
+      month: '',
+      day: '',
+      year: '',
+      hour: '',
+      minute: '',
+      ampm: '',
     })
   }
-
   setDateTime = () => {
-    // Joins date and time values (set from drop down menus) into valid submission format
-    const interim = [this.state.month, this.state.day, this.state.year]
-    this.setState({ dateDueInput: interim.join('/') })
-    const interim2 = [this.state.hour, this.state.minute, ` ${this.state.ampm}`]
-    this.setState({ timeDueInput: interim2.join('') })
+    const months = [
+      'Jan',
+      'Feb',
+      'Mar',
+      'Apr',
+      'May',
+      'June',
+      'July',
+      'Aug',
+      'Sept',
+      'Oct',
+      'Nov',
+      'Dec',
+    ]
+    let newMonth =
+      months.findIndex((month) => {
+        return month === this.state.month
+      }) + 1
+    newMonth = newMonth.toString()
+    let tempDate = [newMonth, this.state.day, this.state.year]
+    tempDate = tempDate.join('/')
+    this.setState({ dateDueInput: tempDate })
+    let tempTime = [this.state.hour, this.state.minute, ` ${this.state.ampm}`]
+    tempTime = tempTime.join('')
+    this.setState({ timeDueInput: tempTime })
   }
 
   // Removes/Adds tag from array when creating or editing todo/note items
@@ -89,7 +114,7 @@ class App extends Component {
   }
 
   setDateTimeDue = (e) => {
-    this.setState({ [e.target.id]: e.target.value })
+    this.setState({ [e.target.id]: e.target.value }, this.setDateTime)
   }
 
   ///////////////////////////
@@ -117,8 +142,6 @@ class App extends Component {
   }
 
   addApi = (url, data, category) => {
-    //this.setDateTime() TODO: see why date/time is not being included in data
-
     fetch(url, {
       method: 'POST',
       headers: new Headers({

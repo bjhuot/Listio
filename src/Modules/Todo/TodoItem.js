@@ -4,14 +4,14 @@ import TodoEditModal from './TodoEditModal'
 const TodoItem = ({ todo, deleteapi, removeTag, updateApi, ...props }) => {
   // Sets null/default response for Date/Time Due from API to "None"
   function timeDue() {
-    if (todo.timeDue === '12:00 AM') {
+    if (todo.timeDue === ('12:00 AM' || ' ')) {
       return 'None'
     }
     return todo.timeDue
   }
 
   function dateDue() {
-    if (todo.dateDue === '1/1/01') {
+    if (todo.dateDue === ('1/1/01' || '//')) {
       return 'None'
     }
     return todo.dateDue

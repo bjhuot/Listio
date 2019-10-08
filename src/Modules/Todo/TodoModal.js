@@ -231,8 +231,8 @@ const TodoModal = (props) => {
                       }}
                     >
                       <option>AM/PM</option>
-                      <option> AM</option>
-                      <option> PM</option>
+                      <option>AM</option>
+                      <option>PM</option>
                     </select>
                   </div>
                 </div>
@@ -251,7 +251,6 @@ const TodoModal = (props) => {
                 type="button"
                 className="btn btn-primary"
                 onClick={() => {
-                  props.setDateTime()
                   props.addapi(
                     'https://localhost:5001/api/todo/',
                     props.todoData,

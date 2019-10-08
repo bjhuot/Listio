@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/System/Volumes/Data/Users/brianhuot/coding/listio/API Server/Listio/Listio.csproj": {}
+    "/Users/brianhuot/coding/listio/API Server/Listio/Listio.csproj": {}
   },
   "projects": {
-    "/System/Volumes/Data/Users/brianhuot/coding/listio/API Server/Listio/Listio.csproj": {
+    "/Users/brianhuot/coding/listio/API Server/Listio/Listio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/System/Volumes/Data/Users/brianhuot/coding/listio/API Server/Listio/Listio.csproj",
+        "projectUniqueName": "/Users/brianhuot/coding/listio/API Server/Listio/Listio.csproj",
         "projectName": "Listio",
-        "projectPath": "/System/Volumes/Data/Users/brianhuot/coding/listio/API Server/Listio/Listio.csproj",
+        "projectPath": "/Users/brianhuot/coding/listio/API Server/Listio/Listio.csproj",
         "packagesPath": "/Users/brianhuot/.nuget/packages/",
-        "outputPath": "/System/Volumes/Data/Users/brianhuot/coding/listio/API Server/Listio/obj/",
+        "outputPath": "/Users/brianhuot/coding/listio/API Server/Listio/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
